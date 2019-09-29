@@ -77,3 +77,8 @@ Til sidst har vi en administrator, brugertype 0, som vil kunne fjerne bookings (
       - client : appointment
     - Appointments bliver herefter vist i kalenderen for den enkelte konsulent. 
     - Skal have en datofunktion (dateFunction).
+    
+    
+  ## UML diagram
+  
+  ![Klassediagram](https://i.imgur.com/g22CNAk.png)
