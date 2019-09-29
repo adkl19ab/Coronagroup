@@ -75,5 +75,5 @@ Til sidst har vi en administrator, brugertype 0, som vil kunne fjerne bookings (
       - time : appointment
       - consultant : appointment 
       - client : appointment
-Appointments bliver herefter vist i kalenderen for den enkelte konsulent. 
-Skal have en datofunktion (dateFunction).
+    - Appointments bliver herefter vist i kalenderen for den enkelte konsulent. 
+    - Skal have en datofunktion (dateFunction).
