@@ -1,3 +1,3 @@
 Det godt
 anus
-Kæft det køer
+Kæft det køer puha det er godt
