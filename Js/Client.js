@@ -1,7 +1,8 @@
 
 class client {
-    constructor (name, company, email, address, usertype) {
+    constructor (name, password, company, email, address, usertype) {
         this.name = name;
+        this.password = password;
         this.company = company;
         this.email = email;
         this.address = address;
@@ -10,7 +11,7 @@ class client {
     }
 }
 
-var client1 = new client ("Isak", "CBS", "Johan@Lundtoft.com", "Gernersgade 16, 1319 Kbh K", "1");
+var client1 = new client("Isak", "1234", "CBS", "Johanlundtoft@gmail.com", "Gernersgade 26, 1319 Kbh K", "1");
 
 console.log(client1);
 

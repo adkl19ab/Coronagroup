@@ -1,12 +1,13 @@
 
 class administrator {
-    constructor (name, email, usertype,) {
+    constructor (name, password, email, usertype,) {
         this.name = name;
+        this.password = password;
         this.email = email;
         this. usertype = usertype;
     }
 }
 
-var administrator1 = new administrator("Isak", "Johanlundtoft@Gmail.com","0");
+var administrator1 = new administrator("Isak", "1234", "Johanlundtoft@gmail.com", "0");
 
 console.log(administrator1);
