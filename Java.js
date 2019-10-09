@@ -1,4 +1,4 @@
 Det godt
 anus
-Kæft det køer
+Kæft det køer lækkert lækkert
 hej
