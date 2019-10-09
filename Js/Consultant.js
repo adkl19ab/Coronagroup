@@ -1,14 +1,14 @@
 
 class consultant {
-    constructor (name, password, skilltag, email, type) {
+    constructor (name, password, skilltag, email, usertype) {
         this.name = name;
         this.password = password;
         this.skilltag = skilltag;
         this.email = email;
-        this.type = type;
+        this.usertype = usertype;
     }
 }
 
-var consultant1 = new consultant("Caroline", "1234", "HTML", "Test@Caroline.com", 2);
+var consultant1 = new consultant("Isak","1234","HTML","Johanlundtoft@gmail.com","2");
 
 console.log(consultant1);
