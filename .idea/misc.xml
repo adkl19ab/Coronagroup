@@ -3,4 +3,10 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+<<<<<<< HEAD
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/Java.js" />
+  </component>
+=======
+>>>>>>> origin/master
 </project>
