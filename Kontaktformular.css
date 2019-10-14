@@ -6,13 +6,13 @@ body{
     background-size: cover;
     background-position: center;
     font-family: sans-serif;
-
+    background-attachment: fixed;
 }
 .contact-title{
     margin-top: 100px;
     color:black;
     text-transform: uppercase;
-    transition: all 4s ease;
+    transition: all 4s ease-in-out;
 
 }
 .contact-title h1{
@@ -22,3 +22,36 @@ body{
 .contact-title h2{
     font-size: 16px;
 }
+form{
+    margin-top: 50px;
+    transition: 4s ease-in-out;
+
+}
+.form-control{
+    width: 600px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    color: Black;
+    font-size: 18px;
+    margin-bottom: 32px;
+
+}
+input{
+    height: 45px;
+}
+form .submit{
+    background: white;
+    border: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+form .submit:hover{
+    background-color: indianred;
+    cursor: pointer;
+}
+
