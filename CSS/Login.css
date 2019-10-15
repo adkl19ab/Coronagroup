@@ -120,7 +120,7 @@ img.avatar {
 
 /* The "Forgot password" text */
 span.psw {
-    float: right;
+    float: auto;
     padding-top: 16px;
 }
 
