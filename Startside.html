@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Velkommen</title>
     <link rel="stylesheet" type="text/css" href="CSS/Startside.css">
+    <link rel="stylesheet" type="text/css" href="CSS/Style.css">
 </head>
 <body>
     <a href="Startside.html"><img id="CCC1" src='images/CCC1.png' alt="CCC" width="200" height="100"></a>
@@ -15,9 +16,47 @@
         <li><a href="Kontaktformular.html">Kontakt</a></li>
         <li><a href="***">Konsultenter</a></li>
         <li><a href="Skills.html">Skills</a></li>
-        <li><a href="Login.html">Login</a></li>
+        <li><a><button onclick="document.getElementById('id01').style.display='block'">Login</button></a></li>
     </ul>
-<img src="images/konference.jpg" width="1520">
+
+    <!-- Button to open the modal login form -->
+
+
+    <!-- The Modal -->
+    <div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+
+        <!-- Modal Content -->
+        <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+                <img src="images/CCC1.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <img src="images/konference.jpg" width="1520">
 <table>
     <tb style="font-size:50px">Om Os</tb>
     <tb>
