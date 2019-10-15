@@ -1,10 +1,11 @@
 body{
     margin: 0;
-    padding: 0;
+    padding: 100px;
     text-align: center;
     background-image: url("../images/Contactform.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: center 127px;
+    background-repeat: no-repeat;
     font-family: sans-serif;
     background-attachment: fixed;
 }
@@ -24,7 +25,7 @@ body{
     font-size: 16px;
 }
 form{
-    margin-top: 50px;
+    margin-top: 10px;
     transition: 4s ease-in-out;
 
 }
