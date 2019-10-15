@@ -5,10 +5,12 @@
     <title>Velkommen</title>
     <link rel="stylesheet" type="text/css" href="CSS/Startside.css">
     <link rel="stylesheet" type="text/css" href="CSS/Login.css">
+
 </head>
 <body>
     <a href="Startside.html"><img id="CCC1" src='images/CCC1.png' alt="CCC" width="200" height="100"></a>
 
+    <!-- NavBar -->
     <ul>
         <li></li>
         <li><a class="active" href="Startside.html">Home</a></li>
@@ -16,19 +18,17 @@
         <li><a href="Kontaktformular.html">Kontakt</a></li>
         <li><a href="***">Konsultenter</a></li>
         <li><a href="Skills.html">Skills</a></li>
-        <li><a><button onclick="document.getElementById('id01').style.display='block'">Login</button></a></li>
+        <li style="float: right"><a onclick="document.getElementById('id02').style.display='block'">Register</a></li>
+        <li style="float: right"><a onclick="document.getElementById('id01').style.display='block'">Login</a></li>
+
     </ul>
 
-    <!-- Button to open the modal login form -->
 
-
-
-    <!-- The Modal -->
+    <!-- Login -->
     <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'"
         class="close" title="Close Modal">&times;</span>
 
-        <!-- Modal Content -->
         <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
                 <img src="images/personicon.png" alt="Avatar" class="avatar">
@@ -53,10 +53,40 @@
             </div>
         </form>
     </div>
+    </div>
+
+    <!-- Register -->
+    <div id="id02" class="register">
+  <span onclick="document.getElementById('id02').style.display='none'"
+        class="closeres" title="Close Res">&times;</span>
 
 
+        <form class="res-content animate" action="/action_page.php">
+            <div class="resimgcontainer">
+                <img src="images/personicon.png" alt="Avatar" class="avatar">
+            </div>
 
+            <div class="rescontainer">
+                <label for="newuname"><b>New Username</b></label>
+                <input type="text" placeholder="Choose Username" name="newuname" required>
 
+                <label for="newpsw"><b>New Password</b></label>
+                <input type="password" placeholder="Choose Password" name="newpsw" required>
+
+                <label for="newemail"><b>Email</b></label>
+                <input type="email" placeholder="New Email" name="newemail" required>
+
+                <button type="submit">Create</button>
+
+            </div>
+
+            <div class="rescontainer" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+
+            </div>
+        </form>
+    </div>
+    </div>
     <img src="images/konference.jpg" width="1520">
 <table>
     <tb style="font-size:50px">Om Os</tb>
