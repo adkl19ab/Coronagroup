@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <div class="formBox">
+        <label for="username">Username</label>
+        <input type="text" id="enteredName" placeholder="Username" required/>
+    </div>
+    <div class="formBox">
+        <label for="password">Password</label>
+        <input type="password" id="enteredPass" placeholder="Password" required/>
+    </div>
+    <div class="formBox">
+        <button id="btn" type="submit" onclick="addUser()">Register</button>
+    </div>
+    <div id="msg">
+        <pre></pre>
+    </div>
+</form>
+
+<h2>Login</h2>
+<form>
+    <div class="loginBox">
+        <label for="username">Username</label>
+        <input type="text" id="enteredName1"  placeholder="Enter Username" required/>
+    </div>
+    <div class="loginBox">
+        <label for="password">Password</label>
+        <input type="password" id="enteredPass1"  placeholder="Enter Password" required/>
+    </div>
+    <div class="loginBox">
+        <input id="login_btn" type="submit" value="Login" onClick="checkLogin()"/>
+    </div>
+</form>
+<h2>Clear user</h2>
+<input id="clear_users_btn" type="submit" value="Clear users" onClick="clearUsers()"/>
+
+<script src="app.js"> </script>
+</body>
+</html>
