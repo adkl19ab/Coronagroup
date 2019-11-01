@@ -1,5 +1,6 @@
 var currentuser = JSON.parse(localStorage.getItem('Brugere')); //NYT!
 let users = [];
+
 function addUser(){
     alert("Bruger oprettet");
     //ev.preventDefault(); //stopper form i at submit
@@ -17,7 +18,7 @@ function addUser(){
 
     // gem til local storage
     localStorage.setItem('Brugere', JSON.stringify(users));
-};
+}
 
 // Function to check if the stored data from the registration form is equal to the entered data in the login form
 function checkLogin() {
