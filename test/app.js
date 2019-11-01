@@ -1,5 +1,24 @@
 var currentuser = JSON.parse(localStorage.getItem('Brugere')); //NYT!
 let users = [];
+let consultants = [];
+
+class Consultant {
+    constructor (name, consultantPassword, skilltag, email) {
+        this.name = name;
+        this.consultantPassword = consultantPassword;
+        this.skilltag = skilltag;
+        this.email = email;
+    }
+}
+
+function generateConsultants() {
+    consultants.push(new Consultant('consultant1','password1','HTML','test1@consultant.com'));
+    consultants.push(new Consultant('consultant2','password2','CSS','test2@consultant.com'));
+    consultants.push(new Consultant('consultant3','password3','Javascript','test3@consultant.com'));
+
+    localStorage.setItem('consultants', JSON.stringify(consultants))
+}
+
 
 function addUser(){
     alert("Bruger oprettet");
@@ -18,7 +37,7 @@ function addUser(){
 
     // gem til local storage
     localStorage.setItem('Brugere', JSON.stringify(users));
-}
+};
 
 // Function to check if the stored data from the registration form is equal to the entered data in the login form
 function checkLogin() {
