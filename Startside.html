@@ -29,19 +29,25 @@
   <span onclick="document.getElementById('id01').style.display='none'"
         class="close" title="Close Modal">&times;</span>
 
-        <form class="modal-content animate" action="/action_page.php">
+        <form class="modal-content animate">
             <div class="imgcontainer">
                 <img src="images/personicon.png" alt="Avatar" class="avatar">
             </div>
 
             <div class="container">
-                <label for="uname"><b>Username</b></label>
+                <label for="uname"><b>Username</b>
                 <input type="text" placeholder="Enter Username" id="enteredName1" name="uname" required>
+                </label>
 
-                <label for="psw"><b>Password</b></label>
+                <label for="psw"><b>Password</b>
                 <input type="password" placeholder="Enter Password" id="enteredPass1" name="psw" required>
+                </label>
 
-                <input id="login_btn" type="submit" value="Login" onClick="checkLogin()"/>
+
+                <input id="login_btn" type="button"  value="Login" onClick="checkLogin(); document.getElementById('id01').style.display='none'"/>
+
+
+
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
@@ -53,7 +59,6 @@
             </div>
         </form>
     </div>
-    </div>
 
     <!-- Register -->
     <div id="id02" class="register">
@@ -61,21 +66,26 @@
         class="closeres" title="Close Res">&times;</span>
 
 
-        <form class="res-content animate" action="/action_page.php">
+        <form class="res-content animate">
             <div class="resimgcontainer">
                 <img src="images/personicon.png" alt="Avatar" class="avatar">
             </div>
 
             <div class="rescontainer">
-                <label for="newuname"><b>New Username</b></label>
+                <label for="newuname"><b>New Username</b>
                 <input type="text" placeholder="Choose Username" id="enteredName" name="newuname" required>
+                </label>
 
-                <label for="newpsw"><b>New Password</b></label>
+                <label for="newpsw"><b>New Password</b>
                 <input type="password" placeholder="Choose Password" id="enteredPass" name="newpsw" required>
+                </label>
 
-                <label for="newemail"><b>Email</b></label>
+                <label for="newemail"><b>Email</b>
                 <input type="email" placeholder="New Email" id="enteredEmail" name="newemail" required>
-                <button id="btn" type="submit" onclick="addUser()">Register</button>
+                </label>
+
+
+                <button type="submit" id="btn" onclick="addUser(); document.getElementById('id02').style.display='none';">Register</button>
 
 
 
@@ -87,8 +97,7 @@
             </div>
         </form>
     </div>
-    </div>
-    <img src="images/konference.jpg" width="1520">
+    <img src="images/Konference.jpg" alt="" width="1520">
 <table>
     <tb style="font-size:50px">Om Os</tb>
     <tb>
