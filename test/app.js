@@ -14,23 +14,15 @@ function addUser(){
 
     // kun for at vise
     console.warn('Bruger oprettet', {users});
-    /*let pre = document.querySelector('#msg pre');
-    pre.textContent = '\n' + JSON.stringify(users,'\t', 2);*/
 
     // gem til local storage
     localStorage.setItem('Brugere', JSON.stringify(users));
 };
 
-
-/*document.addEventListener('DOMContentLoaded', ()=>{
-   // document.getElementById('btn').addEventListener('click', addUser);
-});
-
- */
 // Function to check if the stored data from the registration form is equal to the entered data in the login form
 function checkLogin() {
 
-    // Stored data from the registration form
+    // work in progress - admin
     //adminName = 'admin';
     //adminPass = 'admin';
 
@@ -45,9 +37,12 @@ function checkLogin() {
             alert('You are logged in.');}
         }
 /*else {
-        alert('Error. Wrong login.');
+        alert('Error. Wrong login.'); //virker ikke
     }*/
     }
+
+
+
 // Function to clear user from localStorage
 /*function clearUsers() {
     localStorage.clear();
