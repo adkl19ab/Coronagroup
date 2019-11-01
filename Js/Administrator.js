@@ -4,7 +4,7 @@ class administrator {
         this.name = name;
         this.password = password;
         this.email = email;
-        this. usertype = usertype;
+        this.usertype = usertype;
     }
 }
 
