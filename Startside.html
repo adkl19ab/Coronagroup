@@ -36,12 +36,12 @@
 
             <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" id="enteredName1" name="uname" required>
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" id="enteredPass1" name="psw" required>
 
-                <button type="submit">Login</button>
+                <input id="login_btn" type="submit" value="Login" onClick="checkLogin()"/>
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
@@ -68,15 +68,16 @@
 
             <div class="rescontainer">
                 <label for="newuname"><b>New Username</b></label>
-                <input type="text" placeholder="Choose Username" name="newuname" required>
+                <input type="text" placeholder="Choose Username" id="enteredName" name="newuname" required>
 
                 <label for="newpsw"><b>New Password</b></label>
-                <input type="password" placeholder="Choose Password" name="newpsw" required>
+                <input type="password" placeholder="Choose Password" id="enteredPass" name="newpsw" required>
 
                 <label for="newemail"><b>Email</b></label>
                 <input type="email" placeholder="New Email" name="newemail" required>
+                <button id="btn" type="submit" onclick="addUser()">Register</button>
 
-                <button type="submit">Create</button>
+
 
             </div>
 
@@ -98,6 +99,6 @@
 
 </table>
 
-
+<script src=test/app.js> </script>
 </body>
 </html>

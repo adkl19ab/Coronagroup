@@ -4,7 +4,7 @@ function addUser(){
     alert("Bruger oprettet");
     //ev.preventDefault(); //stopper form i at submit
 
-    let user = {
+    var user = {
         username: document.getElementById('enteredName').value,
         password: document.getElementById('enteredPass').value
     };
