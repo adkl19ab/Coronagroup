@@ -6,7 +6,8 @@ function addUser(){
 
     var user = {
         username: document.getElementById('enteredName').value,
-        password: document.getElementById('enteredPass').value
+        password: document.getElementById('enteredPass').value,
+        email: document.getElementById('enteredEmail').value
     };
     users.push(user);
     document.forms[0].reset(); //sletter formen til næste entry
