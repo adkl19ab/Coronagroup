@@ -13,14 +13,13 @@
     <!-- NavBar -->
     <ul>
         <li></li>
-        <li><a class="active" href="Startside.html">Home</a></li>
-        <li><a href="#news">News</a></li>
+        <li><a class="active" href="Startside.html">Hjem</a></li>
+        <li><a href="#news">Nyheder</a></li>
         <li><a href="Kontaktformular.html">Kontakt</a></li>
         <li><a href="#">Konsultenter</a></li>
         <li><a href="Skills.html">Skills</a></li>
         <li style="float: right"><a onclick="document.getElementById('id02').style.display='block'">Register</a></li>
         <li style="float: right"><a onclick="document.getElementById('id01').style.display='block'">Login</a></li>
-
     </ul>
 
 
@@ -43,10 +42,7 @@
                 <input type="password" placeholder="Enter Password" id="enteredPass1" name="psw" required>
                 </label>
 
-
-                <input id="login_btn" type="button"  value="Login" onClick="checkLogin(); window.location='Logget_ind/Brugerside.html'; document.getElementById('id01').style.display='none'"/>
-
-
+                <input id="login_btn" type="button"  value="Login" onClick="checkLogin(); document.getElementById('id01').style.display='none'"/>
 
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -84,20 +80,15 @@
                 <input type="email" placeholder="New Email" id="enteredEmail" name="newemail" required>
                 </label>
 
-
                 <button type="submit" id="btn" onclick="addUser(); document.getElementById('id02').style.display='none';">Register</button>
-
-
-
             </div>
 
             <div class="rescontainer" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-
             </div>
         </form>
     </div>
-    <img src="images/Konference.jpg" alt="" width="1520">
+    <img src="images/Konference.jpg" alt="" width="100%">
 <table>
     <tb style="font-size:50px">Om Os</tb>
     <tb>

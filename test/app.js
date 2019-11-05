@@ -32,20 +32,12 @@ function addUser(){
     users.push(user);
     document.forms[0].reset(); //sletter formen til næste entry
 
-    // kun for at vise
-    console.warn('Bruger oprettet', {users});
-
     // gem til local storage
     localStorage.setItem('Brugere', JSON.stringify(users));
-};
+}
 
 // Function to check if the stored data from the registration form is equal to the entered data in the login form
 function checkLogin() {
-
-    // work in progress - admin
-    //adminName = 'admin';
-    //adminPass = 'admin';
-
 
     // Entered data in the login form
     var enteredName = document.getElementById('enteredName1');
@@ -54,11 +46,11 @@ function checkLogin() {
     // Check if stored data from registration form is equal to entered data from login form
     for (let i = 0; i < currentuser.length; i++) {
         if (enteredName.value == currentuser[i].username && enteredPass.value == currentuser[i].password ) {
-            alert('You are logged in.');}
+            alert('Du er blevet logget ind.');
+            window.location='Logget_ind/Brugerside.html';}
+        if (enteredName.value !== currentuser[i].username && enteredPass.value !== currentuser[i].password ) {
+            alert('Forkert Brugerinfo.');}
         }
-/*else {
-        alert('Error. Wrong login.'); //virker ikke
-    }*/
     }
 
 
