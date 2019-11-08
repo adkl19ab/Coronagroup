@@ -1,0 +1,17 @@
+th {
+    border: 2px solid black;
+    height:400px;
+    width:700px;
+    border-spacing: 20px;
+    background-color: #00fff6;
+}
+h3 {
+    font-size: 250%;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: darkgrey;
+}
+table {
+    margin-left: 20px;
+    border-spacing: 20px;
+}
