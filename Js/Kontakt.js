@@ -10,7 +10,7 @@ function validateEmail(sEmail) {
     }
     if (sEmail.match(reEmail)) {
             alert("Besked Sendt!");
-            ev.preventDefault(); //stopper form i at submit
+            //ev.preventDefault(); //stopper form i at submit
 
             var afsenderInfo = {
                 Navn: document.getElementById('mName').value,
