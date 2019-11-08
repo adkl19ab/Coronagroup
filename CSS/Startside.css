@@ -32,5 +32,20 @@ li a:hover {
     font-family: sans-serif;
 }
 table, th {
-    border-spacing: 100px;
+    border-spacing: 130px;
+    padding: 0;
+}
+th {
+    border: 2px solid black;
+}
+th a img {
+    height:300px;
+    width:300px;
+    display:block;
+}
+h3 {
+    font-size: 250%;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: darkgrey;
 }
