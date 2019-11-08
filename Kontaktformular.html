@@ -28,19 +28,20 @@
     </div>
 
     <div class="contact-form">
-        <form id="contact-form" method="post" action="">
-            <input name="name" id="mName" type="text" class="form-control" placeholder="Your name" required><br>
+        <form id="contact-form" action="" >
+            <input name="name" id="mName" type="text" class="form-control" placeholder="Your name"><br>
 
-            <input name="email" id="mEmail" type="email" class="form-control" placeholder="Your email" required><br>
+            <input name="email" id="mEmail" type="text" class="form-control" placeholder="Your email"><br>
 
-            <textarea name="message" id="mMessage" class="form-control" placeholder="Message" rows="4" required></textarea><br>
+            <textarea name="message" id="mMessage" class="form-control" placeholder="Message" rows="4"></textarea><br>
 
-            <input type="submit" class="form-control submit" value="SEND MESSAGE">
+            <input type="submit" class="form-control submit" value="SEND MESSAGE" onclick="validateEmail(mEmail.value); sendBesked();">
 
         </form>
 
 
     </div>
+    <script src="js/Kontakt.js"> </script>
 </body>
 
 </html>
