@@ -22,7 +22,7 @@ function generateConsultants() {
 
 function addUser(){
     alert("Bruger oprettet");
-    //ev.preventDefault(); //stopper form i at submit
+    ev.preventDefault(); //stopper form i at submit
 
     var user = {
         username: document.getElementById('enteredName').value,
