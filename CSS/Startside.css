@@ -31,3 +31,6 @@ li a:hover {
     background-color:#cad2d9;
     font-family: sans-serif;
 }
+table, th {
+    border-spacing: 100px;
+}
