@@ -116,7 +116,8 @@ function checkLogin() {
     if (godkendtID === false && godkendtCID === false) {
         alert('Forkert Brugerinfo!');
     }
-    // if statement som gør brug af vores false variabler og dirigerer videre hvis enten klientinfo eller konsulentens info er korrekt
+    // if statement som gør brug af vores false variabler, sætter deres Online til true i localstorage
+    // og dirigerer videre hvis enten klientinfo eller konsulentens info er korrekt
     if (godkendtID === true || godkendtCID === true) {
         alert('Du er blevet logget ind!');
         localStorage.setItem('Brugere', JSON.stringify(currentClient));
@@ -125,7 +126,7 @@ function checkLogin() {
     }
 }
 
-//Function som gør at kan logge ind ved at trykke Enter på password input.
+// Function som gør at kan logge ind ved at trykke Enter på password input.
 // Hentet fra w3school og modificeret til vores behov
 // Get the input field
 
