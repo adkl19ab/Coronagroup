@@ -57,6 +57,8 @@ form .submit:hover, button{
     cursor: pointer;
 }
 
-
+.anime {
+    transition: 4s ease-in-out;
+}
 
 

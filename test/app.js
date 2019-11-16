@@ -3,24 +3,30 @@ var currentConsultant = JSON.parse(localStorage.getItem('consultants'));
 let clients = [];
 let consultants = [];
 
+// Vigtig!
+//Hurtig løsning - tjekker om der er en key der hedder Brugere hvis ikke der er så laver den en med et tomt array.
+let clientTom = localStorage.getItem("Brugere");
+if (clientTom == null) {
+    localStorage.setItem('Brugere', JSON.stringify([]));
+}
 
 // Definerer vores klasser som bliver brugt til generering samt registrering af brugerne i vores system
-
 class Consultant {
-    constructor (consultantName, consultantPassword, skillTag, consultantEmail) {
+    constructor (consultantName, consultantPassword, skillTag, consultantEmail, Online) {
         this.consultantName = consultantName;
         this.consultantPassword = consultantPassword;
         this.skillTag = skillTag;
         this.consultantEmail = consultantEmail;
+        this.Online = false;
 }
     }
 
 class Client {
-    constructor (clientName, clientPassword, clientEmail) {
+    constructor (clientName, clientPassword, clientEmail, Online) {
         this.clientName = clientName;
         this.clientPassword = clientPassword;
         this.clientEmail = clientEmail;
-
+        this.Online = false;
     }
 
     // tilføjer method som vi senere kalder i addUser funktionen
@@ -30,13 +36,11 @@ class Client {
 }
 // Funktion som tilføjer pre-set konsulenter til localstorage on-load
 
-function generateConsultants() {
     consultants.push(new Consultant('consultant1','password1','HTML','test1@consultant.com'));
     consultants.push(new Consultant('consultant2','password2','CSS','test2@consultant.com'));
     consultants.push(new Consultant('consultant3','password3','Javascript','test3@consultant.com'));
 
-    localStorage.setItem('consultants', JSON.stringify(consultants))
-}
+    localStorage.setItem('consultants', JSON.stringify(consultants));
 
 function addUser() {
 
@@ -57,8 +61,9 @@ function addUser() {
     newClient.promptAlert();
 
     // Log af newClient for kontrol
-   console.log(newClient);
-
+    console.log(newClient);
+    // Henter de brugere der findes i key
+    clients = JSON.parse(localStorage.getItem('Brugere'));
     // Pusher til vores Clients[] array
     clients.push(newClient);
 
@@ -68,7 +73,8 @@ function addUser() {
     // Endelig log for kontrol
     console.log(clients);
     console.log(consultants);
-
+    // Refresher siden ellers bliver seneste entry ikke pushet ind alle steder.
+    window.location = 'Startside.html';
     // Resetter formen til registrering af næste bruger - ikke i brug lige nu, lader til,
     // at den indbyggede funktion i HTML button submit har samme funktion
 
@@ -78,35 +84,59 @@ function addUser() {
 // Funktion som tjekker at den registrerede data er den samme som er indtastet i login-formen
 
 function checkLogin() {
+// Variabler som er sat til false.
+    let godkendtID = false;
+    let godkendtCID = false;
 
     // Entered data in the login form
     let enteredName = document.getElementById('enteredName1');
     let enteredPass = document.getElementById('enteredPass1');
 
-    // Check if stored data from registration form is equal to entered data from login form
-
+    // Funktion som tjekker om det er en Klient der logger ind og sætter godkendtID til true hvis det er.
     for (let i = 0; i < currentClient.length; i++) {
         if (enteredName.value === currentClient[i].clientName && enteredPass.value === currentClient[i].clientPassword) {
-            alert('Du er blevet logget ind.');
-            window.location = 'Logget_ind/Brugerside.html';
-            return
+            currentClient[i].Online = true;
+            godkendtID = true;
         }
+    }
 
+
+
+
+
+    // Funktion som tjekker om det er en Konsulent der logger ind og sætter godkendtCID til true hvis det er.
+    for (let i = 0; i < currentConsultant.length; i++) {
         if (enteredName.value === currentConsultant[i].consultantName && enteredPass.value === currentConsultant[i].consultantPassword) {
-            alert('Du er logget ind som konsulent');
-            window.location = 'Logget_ind/Brugerside.html';
+            currentConsultant[i].Online = true;
+            godkendtCID = true;
         }
+    }
 
-        else {
-            alert('Forkert Brugerinfo');
-        }
+    // if statement som advarer hvis brugerinfo er forkert.
+    if (godkendtID === false && godkendtCID === false) {
+        alert('Forkert Brugerinfo!');
+    }
+    // if statement som gør brug af vores false variabler og dirigerer videre hvis enten klientinfo eller konsulentens info er korrekt
+    if (godkendtID === true || godkendtCID === true) {
+        alert('Du er blevet logget ind!');
+        localStorage.setItem('Brugere', JSON.stringify(currentClient));
+        localStorage.setItem('consultants', JSON.stringify(currentConsultant));
+        window.location = 'Logget_ind/Brugerside.html';
     }
 }
 
+//Function som gør at kan logge ind ved at trykke Enter på password input.
+// Hentet fra w3school og modificeret til vores behov
+// Get the input field
 
-
-// Function to clear user from localStorage
-/*function clearUsers() {
-    localStorage.clear();
-    alert('Users has been cleared from localStorage.');
-}*/
+let input = document.getElementById("enteredPass1");
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("login_btn").click();
+    }
+});
