@@ -1,15 +1,34 @@
-var currentuser = JSON.parse(localStorage.getItem('Brugere')); //NYT!
-let users = [];
+var currentClient = JSON.parse(localStorage.getItem('Brugere'));
+var currentConsultant = JSON.parse(localStorage.getItem('consultants'));
+let clients = [];
 let consultants = [];
 
+
+// Definerer vores klasser som bliver brugt til generering samt registrering af brugerne i vores system
+
 class Consultant {
-    constructor (name, consultantPassword, skilltag, email) {
-        this.name = name;
+    constructor (consultantName, consultantPassword, skillTag, consultantEmail) {
+        this.consultantName = consultantName;
         this.consultantPassword = consultantPassword;
-        this.skilltag = skilltag;
-        this.email = email;
+        this.skillTag = skillTag;
+        this.consultantEmail = consultantEmail;
+}
+    }
+
+class Client {
+    constructor (clientName, clientPassword, clientEmail) {
+        this.clientName = clientName;
+        this.clientPassword = clientPassword;
+        this.clientEmail = clientEmail;
+
+    }
+
+    // tilføjer method som vi senere kalder i addUser funktionen
+    promptAlert() {
+        alert('Welcome ' + this.clientName + ', your account has been registered');
     }
 }
+// Funktion som tilføjer pre-set konsulenter til localstorage on-load
 
 function generateConsultants() {
     consultants.push(new Consultant('consultant1','password1','HTML','test1@consultant.com'));
@@ -19,39 +38,70 @@ function generateConsultants() {
     localStorage.setItem('consultants', JSON.stringify(consultants))
 }
 
+function addUser() {
 
-function addUser(){
-    alert("Bruger oprettet");
-    ev.preventDefault(); //stopper form i at submit
+    // Deklærer variable samt elementId i HTML dokument hvor informationen hentes fra.
 
-    var user = {
-        username: document.getElementById('enteredName').value,
-        password: document.getElementById('enteredPass').value,
-        email: document.getElementById('enteredEmail').value
-    };
-    users.push(user);
-    document.forms[0].reset(); //sletter formen til næste entry
+    let clientName = document.getElementById('enteredName').value;
+    let clientPassword = document.getElementById('enteredPass').value;
+    let clientEmail = document.getElementById('enteredEmail').value;
 
-    // gem til local storage
-    localStorage.setItem('Brugere', JSON.stringify(users));
+    // Funktion som generer users baseret på tidligere beskrevet class og constructor
+
+    let newClient = new Client(
+        document.getElementById('enteredName').value,
+        document.getElementById('enteredPass').value,
+        document.getElementById('enteredEmail').value
+    );
+
+    newClient.promptAlert();
+
+    // Log af newClient for kontrol
+   console.log(newClient);
+
+    // Pusher til vores Clients[] array
+    clients.push(newClient);
+
+    // Gemmer til local storage
+    localStorage.setItem('Brugere', JSON.stringify(clients));
+
+    // Endelig log for kontrol
+    console.log(clients);
+    console.log(consultants);
+
+    // Resetter formen til registrering af næste bruger - ikke i brug lige nu, lader til,
+    // at den indbyggede funktion i HTML button submit har samme funktion
+
+    // document.forms[0].reset();
 }
 
-// Function to check if the stored data from the registration form is equal to the entered data in the login form
+// Funktion som tjekker at den registrerede data er den samme som er indtastet i login-formen
+
 function checkLogin() {
 
     // Entered data in the login form
-    var enteredName = document.getElementById('enteredName1');
-    var enteredPass = document.getElementById('enteredPass1');
+    let enteredName = document.getElementById('enteredName1');
+    let enteredPass = document.getElementById('enteredPass1');
 
     // Check if stored data from registration form is equal to entered data from login form
-    for (let i = 0; i < currentuser.length; i++) {
-        if (enteredName.value == currentuser[i].username && enteredPass.value == currentuser[i].password ) {
+
+    for (let i = 0; i < currentClient.length; i++) {
+        if (enteredName.value === currentClient[i].clientName && enteredPass.value === currentClient[i].clientPassword) {
             alert('Du er blevet logget ind.');
-            window.location='Logget_ind/Brugerside.html';}
-        if (enteredName.value !== currentuser[i].username && enteredPass.value !== currentuser[i].password ) {
-            alert('Forkert Brugerinfo.');}
+            window.location = 'Logget_ind/Brugerside.html';
+            return
+        }
+
+        if (enteredName.value === currentConsultant[i].consultantName && enteredPass.value === currentConsultant[i].consultantPassword) {
+            alert('Du er logget ind som konsulent');
+            window.location = 'Logget_ind/Brugerside.html';
+        }
+
+        else {
+            alert('Forkert Brugerinfo');
         }
     }
+}
 
 
 
