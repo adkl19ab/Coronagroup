@@ -1,9 +1,9 @@
 th {
     border: 2px solid black;
-    height:400px;
-    width:700px;
+    height:500px;
+    width:1%;
     border-spacing: 20px;
-    background-color: #00fff6;
+    background-color: darkgrey;
 }
 h3 {
     font-size: 250%;
@@ -12,6 +12,6 @@ h3 {
     background-color: darkgrey;
 }
 table {
-    margin-left: 20px;
-    border-spacing: 20px;
+    margin-left: 1%;
+    border-spacing: 30px;
 }
