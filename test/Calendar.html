@@ -2,11 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Calender</title>
+    <title>Calendar</title>
 </head>
-<body>
-<iframe src="https://calendar.google.com/calendar/embed?src=ejm4398urf4ue123g19u2cp0fg%40group.calendar.google.com&ctz=Europe%2FAmsterdam" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-<br/>
+<body onload=generateAppointmentsTest()>
+<div id="idBook" class="bookingForm">
+<span onclick="document.getElementById('id02').style.display='none'"
+      class="closeres" title="Close Res">&times;</span>
+<form>
+    <label for="apptTime">Choose a time for your meeting:</label><br>
 
+    <input id="nameOfClient" name="HTMLnameOfClient" placeholder="Type your username" required type="text"><br>
+    <input type="time" id="apptTime" name="appt"
+           min="09:00" max="18:00" required>
+    <button type="button" id="btnBook" onclick="testBooking(); document.getElementById('id02').style.display='none';">Request</button>
+    </label>
+
+
+    <small>Office hours are 9am to 6pm</small>
+</form>
+</div>
 </body>
+
+<script src="../Js/appointment_dummy.js">
+</script>
 </html>
