@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/Filter.css">
+    <link rel="stylesheet" type="text/css" href="CSS/Startside.css">
+
+</head>
+<header>
+    <a href="Startside.html"><img id="CCC1" src='images/CCC1.png' alt="CCC" width="200" height="100"></a>
+
+    <!-- NavBar -->
+    <ul>
+        <li><a class="active" href="Logget_ind/Brugerside.html">Hjem</a></li>
+        <li><a href="#news">Nyheder</a></li>
+        <li><a href="Kontaktformular.html">Kontakt</a></li>
+        <li><a href="Skillsfilter.html">Konsultenter</a></li>
+        <li><a href="Skills.html">Skills</a></li>
+        <li style="float: right"><a href="#" onclick="logOff(); ClogOff();">Log ud</a></li>
+    </ul>
+</header>
+
+
+<body onload="sendVidere()">
+
+<!-- Control buttons -->
+<div id="myBtnContainer">
+    <button class="btn active" onclick="filterSelection('all')">Vis Alle</button>
+    <button class="btn" onclick="filterSelection('Frontend')"> Frontend</button>
+    <button class="btn" onclick="filterSelection('Backend')"> Backend</button>
+    <button class="btn" onclick="filterSelection('IT Rådgivning')"> IT Rådgivning</button>
+    <button class="btn" onclick="filterSelection('IT Support')"> IT Support</button>
+</div>
+
+<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
+<div class="container">
+    <div class="filterDiv Frontend"><img src="images/personicon.png" alt=" " id="img"><p> Mads Mikkelsen specialist i Frontend development herunder .......</p></div>
+    <div class="filterDiv IT Support"><img src="images/personicon.png" alt=" " id="img"><p> Mads Mikkelsen specialist i Frontend development herunder .......</p></div>
+    <div class="filterDiv Frontend"><img src="images/personicon.png" alt=" " id="img"><p> Mads Mikkelsen specialist i Frontend development herunder .......</p></div>
+    <div class="filterDiv IT Rådgivning"><img src="images/personicon.png" alt=" " id="img"><p> Mads Mikkelsen specialist i Frontend development herunder .......</p></div>
+    <div class="filterDiv IT Support"><img src="images/personicon.png" alt=" " id="img"><p> Mads Mikkelsen specialist i Frontend development herunder .......</p></div>
+    <div class="filterDiv Frontend"><img src="images/personicon.png" alt=" " id="img"><p> Mads Mikkelsen specialist i Frontend development herunder .......</p></div>
+    <div class="filterDiv Backend"><img src="images/personicon.png" alt=" " id="img"><p> Mads Mikkelsen specialist i Frontend development herunder .......</p></div>
+    <div class="filterDiv IT Rådgivning"><img src="images/personicon.png" alt=" " id="img"><p> Mads Mikkelsen specialist i Frontend development herunder .......</p></div>
+    <div class="filterDiv Backend"><img src="images/personicon.png" alt=" " id="img"><p> Mads Mikkelsen specialist i Frontend development herunder .......</p></div>
+    <div class="filterDiv IT Rådgivning"><img src="images/personicon.png" alt=" " id="img"><p> Mads Mikkelsen specialist i Frontend development herunder .......</p></div>
+
+</div>
+
+
+<script src="Js/logaf.js"></script>
+<script src="Js/Filter.js"></script>
+</body>
+</html>
