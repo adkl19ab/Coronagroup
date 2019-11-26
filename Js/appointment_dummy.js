@@ -1,6 +1,15 @@
+// Hele dette dokument er blot et dummy dokument, som der kan bruges mens der laves brugerinfo side eller booking display
+
+
+// currentAppointments kan bruges, hvis der senere skal tjekkes arrays igennem eller lign.
 var currentAppointments = JSON.parse(localStorage.getItem('appointments'));
+
+//Tomt arrray som indeholder arrays, bliver senere pushed til local storage.
 var testAppointments = [];
 
+
+//Vores constructor class som definerer hvad en appointment indeholder.
+//Denne kan  i sagtens ændre i, hvis I bare lige skriver og hører. Skal nemlig koordineres med vores bookingsystem.
 
 class appointment {
     constructor (nameOfClient, nameOfConsultant, dateOfAppointment, startTimeOfAppointment, endTimeOfAppointment){
@@ -11,6 +20,9 @@ class appointment {
         this.endTimeOfAppointment = endTimeOfAppointment;
     }
 }
+
+//Dummy funktion som generer pre-set appointments baseret på vores constructor.
+//Kommer senere til at hente information fra vores booking-form på siden.
 
 function generateAppointmentsTest() {
 
