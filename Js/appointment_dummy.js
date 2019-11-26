@@ -2,9 +2,9 @@
 
 
 // currentAppointments kan bruges, hvis der senere skal tjekkes arrays igennem eller lign.
-var currentAppointments = JSON.parse(localStorage.getItem('appointments'));
+var currentAppointments = JSON.parse(localStorage.getItem('testAppointments'));
 
-//Tomt arrray som indeholder arrays, bliver senere pushed til local storage.
+//Tomt arrray som indeholder appointments, bliver senere pushed til local storage.
 var testAppointments = [];
 
 
@@ -30,6 +30,9 @@ function generateAppointmentsTest() {
     testAppointments.push(new appointment('test2', 'test2', '22/22/2019', '02:00', '03:00'));
     testAppointments.push(new appointment('test3', 'test3', '33/33/2019', '03:00', '04:00'));
 
-    localStorage.setItem('appointments', JSON.stringify(testAppointments));
+    localStorage.setItem('testAppointments', JSON.stringify(testAppointments));
 
+}
+function testAlarm(){
+    alert('Ikke tryk her')
 }
