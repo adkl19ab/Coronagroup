@@ -29,9 +29,9 @@ class Client {
         this.Online = false;
     }
 
-    // tilføjer method som vi senere kalder i addUser funktionen
+    // tilføjer method som vi senere kalder i addUser funktionen - gør brug af string interpolation
     promptAlert() {
-        alert('Welcome ' + this.clientName + ', your account has been registered');
+        alert(`Welcome ${this.clientName}, your account has been registered`);
     }
 }
 // Funktion som tilføjer pre-set konsulenter til localstorage on-load
@@ -44,7 +44,8 @@ class Client {
 
 function addUser() {
 
-    // Deklærer variable samt elementId i HTML dokument hvor informationen hentes fra.
+    // Deklærer variable samt elementId i HTML dokument hvor informationen hentes fra - Lader ikke til at være nødvendigt for nu
+    // Lader det dog være.
 
     let clientName = document.getElementById('enteredName').value;
     let clientPassword = document.getElementById('enteredPass').value;
@@ -73,8 +74,10 @@ function addUser() {
     // Endelig log for kontrol
     console.log(clients);
     console.log(consultants);
+
     // Refresher siden ellers bliver seneste entry ikke pushet ind alle steder.
     window.location = 'Startside.html';
+
     // Resetter formen til registrering af næste bruger - ikke i brug lige nu, lader til,
     // at den indbyggede funktion i HTML button submit har samme funktion
 
@@ -99,9 +102,6 @@ function checkLogin() {
             godkendtID = true;
         }
     }
-
-
-
 
 
     // Funktion som tjekker om det er en Konsulent der logger ind og sætter godkendtCID til true hvis det er.
