@@ -24,7 +24,7 @@ body{
 .contact-title h2{
     font-size: 16px;
 }
-form{
+form, .contact-form{
     margin-top: 10px;
     transition: 4s ease-in-out;
 
@@ -41,9 +41,9 @@ form{
 
 }
 input{
-    height: 45 px;
+    height: 45px;
 }
-form .submit{
+form .submit, button{
     background: white;
     border: none;
     color: black;
@@ -52,11 +52,13 @@ form .submit{
     letter-spacing: 1px;
     margin-top: 20px;
 }
-form .submit:hover{
+form .submit:hover, button{
     background-color: indianred;
     cursor: pointer;
 }
 
-
+.anime {
+    transition: 4s ease-in-out;
+}
 
 

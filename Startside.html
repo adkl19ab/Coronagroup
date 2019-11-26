@@ -7,21 +7,22 @@
     <link rel="stylesheet" type="text/css" href="CSS/Login.css">
 
 </head>
-<body onload="generateConsultants()">
-    <a href="Startside.html"><img id="CCC1" src='images/CCC1.png' alt="CCC" width="200" height="100"></a>
+
+<body onload="sendVidere()">
+
+<div class="Navbar">
 
     <!-- NavBar -->
+    <a href="Startside.html"><img id="CCC1" src='images/CCC1.png' alt="CCC" width="200" height="100"></a>
     <ul>
-        <li></li>
-        <li><a class="active" href="Startside.html">Home</a></li>
-        <li><a href="#news">News</a></li>
+        <li><a class="active" href="Startside.html">Hjem</a></li>
+        <li><a href="#news">Nyheder</a></li>
         <li><a href="Kontaktformular.html">Kontakt</a></li>
-        <li><a href="***">Konsultenter</a></li>
+        <li><a href="#">Konsultenter</a></li>
         <li><a href="Skills.html">Skills</a></li>
         <li><a href="Skills.html">Skills</a></li>
         <li style="float: right"><a onclick="document.getElementById('id02').style.display='block'">Register</a></li>
         <li style="float: right"><a onclick="document.getElementById('id01').style.display='block'">Login</a></li>
-
     </ul>
 
 
@@ -42,7 +43,7 @@
                 </label>
 
                 <label for="psw"><b>Password</b>
-                <input type="password" placeholder="Enter Password" id="enteredPass1" name="psw" required>
+                <input type="password" placeholder="Enter Password" id="enteredPass1" name="psw" autocomplete="on" required>
                 </label>
 
 
@@ -79,7 +80,7 @@
                 </label>
 
                 <label for="newpsw"><b>New Password</b>
-                <input type="password" placeholder="Choose Password" id="enteredPass" name="newpsw" required>
+                <input type="password" placeholder="Choose Password" id="enteredPass" name="newpsw" autocomplete="on" required>
                 </label>
 
                 <label for="newemail"><b>Email</b>
@@ -87,7 +88,7 @@
                 </label>
 
 
-                <button type="submit" id="btn" onclick="addUser(); document.getElementById('id02').style.display='none';">Register</button>
+                <button type="button" id="btn" onclick="addUser(); document.getElementById('id02').style.display='none';">Register</button>
 
 
 
@@ -99,8 +100,10 @@
             </div>
         </form>
     </div>
-    <img src="images/Konference.jpg" alt="" width="1520">
-<table>
+</div>
+
+    <img src="images/panorama.jpg" alt="" width="100%">
+    <table>
     <tb style="font-size:50px">Om Os</tb>
     <tb>
         <br> Hejsa og velkommen til vores side. håber du bliver tilfredsstilt med vores mange former for service *wink
@@ -110,6 +113,7 @@
 
 </table>
 
-<script src=test/app.js> </script>
+<script src=Js/Java.js> </script>
+    <script src=test/app.js> </script>
 </body>
 </html>

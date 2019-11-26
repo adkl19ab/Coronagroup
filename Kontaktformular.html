@@ -7,7 +7,6 @@
     <title>Contact Form Design</title>
     <link rel="stylesheet" type="text/css" href="CSS/Kontaktformular.css">
     <link rel="stylesheet" type="text/css" href="CSS/Startside.css">
-    <script src="Js/Kontaktformular.js"></script>
 </head>
 <body>
     <a href="Startside.html"><img id="CCC1" src='images/CCC1.png' alt="CCC" width="200" height="100" align="left" style="position:"></a>
@@ -28,28 +27,17 @@
 
     </div>
 
-
-
     <div class="contact-form">
-
-
         <form id="contact-form" method="post" action="">
+            <input name="name" type="text" class="form-control" placeholder="Your name" required><br>
 
-            <input name="name" type="text" class="form-control" placeholder="Your name" id="name" required><br>
+            <input name="email" type="email" class="form-control" placeholder="Your email" required><br>
 
-            <input name="subject" type="text" class="form-control" placeholder="Subject" id="subject" required><br>
-
-            <input name="email" type="email" class="form-control" placeholder="Your email" id="email" required><br>
-
-            <input name="phone" type="text" class="form-control" placeholder="Your Phone Number" id="phone"required><br>
-
-            <textarea name="message" class="form-control" placeholder="Message" rows="4" id="message" required></textarea><br>
+            <textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea><br>
 
             <input type="submit" class="form-control submit" value="SEND MESSAGE"
 
         </form>
-
-
 
 
     </div>
