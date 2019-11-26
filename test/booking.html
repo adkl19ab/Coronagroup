@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <title>Calendar</title>
 </head>
+
 <body onload=generateAppointmentsTest()>
 <div id="idBook" class="bookingForm">
 <span onclick="document.getElementById('id02').style.display='none'"
       class="closeres" title="Close Res">&times;</span>
+
 <form>
     <label for="apptTime">Choose a time for your meeting:</label><br>
 
     <input id="nameOfClient" name="HTMLnameOfClient" placeholder="Type your username" required type="text"><br>
     <input type="time" id="apptTime" name="appt"
            min="09:00" max="18:00" required>
-    <button type="button" id="btnBook" onclick="testBooking(); document.getElementById('id02').style.display='none';">Request</button>
 
+    <button type="button" id="btnBook" onclick="testBooking(); document.getElementById('id02').style.display='none';">Request</button>
 
 
     <small>Office hours are 9am to 6pm</small>
@@ -23,6 +25,6 @@
 </div>
 </body>
 
-<script src="../Js/appointment_dummy.js">
+<script src="../test/booking.js">
 </script>
 </html>
