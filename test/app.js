@@ -78,8 +78,8 @@ function addUser() {
     // Refresher siden ellers bliver seneste entry ikke pushet ind alle steder.
     window.location = 'Startside.html';
 
-    // Resetter formen til registrering af næste bruger - ikke i brug lige nu, lader til,
-    // at den indbyggede funktion i HTML button submit har samme funktion
+    // Resetter formen til registrering af næste bruger - ikke i brug lige nu.
+    // Lader til at den indbyggede funktion i HTML button submit har samme funktion
 
     // document.forms[0].reset();
 }
