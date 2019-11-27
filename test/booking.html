@@ -13,11 +13,14 @@
 <form>
     <label for="apptTime">Choose a time for your meeting:</label><br>
 
-    <input id="nameOfClient" name="HTMLnameOfClient" placeholder="Type your username" required type="text"><br>
-    <input type="time" id="apptTime" name="appt"
+    <input type="time" id="apptTimeStart" name="appointmentTimeStart"
            min="09:00" max="18:00" required>
+    <input type="time" id="apptTimeEnd" name="appointmentTimeEnd"
+           min="09:00" max="18:00" required>
+    <input type="date" id="apptDate" name="appointmentDate">
 
-    <button type="button" id="btnBook" onclick="book();">Request</button>
+
+    <button type="button" id="btnBook" onclick="addBooking();">Request</button>
 
 
     <small>Office hours are 9am to 6pm</small>
