@@ -7,7 +7,7 @@ function bruger() {
         if (currentClient[i].Online === true) {
             var name = this.currentClient[i].clientName;
             var email = this.currentClient[i].clientEmail;
-            document.getElementById("Brugerinfo").innerHTML= [name, email];
+            document.getElementById("Brugerinfo").innerHTML= (`Username: ${name}\ne-mail: ${email}\n`);
         }
     }
 }
@@ -23,7 +23,7 @@ function viewAppointment(){
             var end = this.currentAppointment[j].endTimeOfAppointment;
             var consultant = this.currentAppointment[j].nameOfConsultant;
 
-            document.getElementById("Apptinfo").innerHTML = [consultant, date, start, end];
+            document.getElementById("Apptinfo").innerHTML = (`You have an appointment with ${consultant}, on ${date}. The appointment starts at ${start} and ends at ${end}`);
         }
     }
 }
