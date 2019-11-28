@@ -3,6 +3,8 @@ var currentConsultant = JSON.parse(localStorage.getItem('consultants'));
 let clients = [];
 let consultants = [];
 
+let godtNavn = false;
+let godtPass = false;
 // Vigtig!
 //Hurtig løsning - tjekker om der er en key der hedder Brugere hvis ikke der er så laver den en med et tomt array.
 let clientTom = localStorage.getItem("Brugere");
@@ -46,44 +48,56 @@ function addUser() {
 
     // Deklærer variable samt elementId i HTML dokument hvor informationen hentes fra - Lader ikke til at være nødvendigt for nu
     // Lader det dog være.
-
-    let clientName = document.getElementById('enteredName').value;
+   /* let clientName = document.getElementById('enteredName').value;
     let clientPassword = document.getElementById('enteredPass').value;
-    let clientEmail = document.getElementById('enteredEmail').value;
+    let clientEmail = document.getElementById('enteredEmail').value;*/
 
     // Funktion som generer users baseret på tidligere beskrevet class og constructor
 
-    let newClient = new Client(
-        document.getElementById('enteredName').value,
-        document.getElementById('enteredPass').value,
-        document.getElementById('enteredEmail').value
-    );
+    if (enteredName.value.length >= 8) {
+        var godtNavn = true;
+    } else alert('Brugernavn skal minimum være 8 cifre langt!');
+    if (enteredPass.value.length >= 8) {
+        var godtPass = true;
+    } else alert('Password skal minimum være 8 cifre langt!');
+    if (enteredEmail.value.match("@.")) {
+        var godEmail = true;
+    } else alert("Email er ikke korrekt angivet!");
 
-    newClient.promptAlert();
 
-    // Log af newClient for kontrol
-    console.log(newClient);
-    // Henter de brugere der findes i key
-    clients = JSON.parse(localStorage.getItem('Brugere'));
-    // Pusher til vores Clients[] array
-    clients.push(newClient);
+    if (godtNavn === true && godtPass === true && godEmail === true) {
+        let newClient = new Client(
+            document.getElementById('enteredName').value,
+            document.getElementById('enteredPass').value,
+            document.getElementById('enteredEmail').value
+        );
+        newClient.promptAlert();
 
-    // Gemmer til local storage
-    localStorage.setItem('Brugere', JSON.stringify(clients));
+        // Log af newClient for kontrol
+        console.log(newClient);
+        // Henter de brugere der findes i key
+        clients = JSON.parse(localStorage.getItem('Brugere'));
+        // Pusher til vores Clients[] array
+        clients.push(newClient);
 
-    // Endelig log for kontrol
-    console.log(clients);
-    console.log(consultants);
+        // Gemmer til local storage
 
-    // Refresher siden ellers bliver seneste entry ikke pushet ind alle steder.
-    window.location = 'Startside.html';
+        localStorage.setItem('Brugere', JSON.stringify(clients));
 
-    // Resetter formen til registrering af næste bruger - ikke i brug lige nu.
-    // Lader til at den indbyggede funktion i HTML button submit har samme funktion
+        // Endelig log for kontrol
+        console.log(clients);
+        console.log(consultants);
 
-    // document.forms[0].reset();
+        // Refresher siden ellers bliver seneste entry ikke pushet ind alle steder.
+        window.location = 'Startside.html';
+
+        // Resetter formen til registrering af næste bruger - ikke i brug lige nu.
+        // Lader til at den indbyggede funktion i HTML button submit har samme funktion
+
+        // document.forms[0].reset();
+
+    }
 }
-
 // Funktion som tjekker at den registrerede data er den samme som er indtastet i login-formen
 
 function checkLogin() {
