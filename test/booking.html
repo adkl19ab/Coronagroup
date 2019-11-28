@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+</head>
+
+<body>
+<div id="idBook" class="bookingForm">
+<span onclick="document.getElementById('id02').style.display='none'"
+      class="closeres" title="Close Res">&times;</span>
+
+<form>
+    <label for="apptTime">Choose a time for your meeting:</label><br>
+
+    <input type="time" id="apptTimeStart" name="appointmentTimeStart"
+           min="09:00" max="18:00" required>
+    <input type="time" id="apptTimeEnd" name="appointmentTimeEnd"
+           min="09:00" max="18:00" required>
+    <input type="date" id="apptDate" name="appointmentDate">
+
+
+    <button type="button" id="btnBook" onclick="addBooking();">Request</button>
+
+
+    <small>Office hours are 9am to 6pm</small>
+</form>
+</div>
+</body>
+
+<script src="booking.js">
+</script>
+</html>
