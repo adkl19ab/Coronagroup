@@ -7,7 +7,8 @@ function bruger() {
         if (currentClient[i].Online === true) {
             var name = this.currentClient[i].clientName;
             var email = this.currentClient[i].clientEmail;
-            document.getElementById("Brugerinfo").innerHTML= (`Username: ${name}\ne-mail: ${email}\n`);
+            document.getElementById("clientUsernameShow").innerHTML = (`Username: ${name}`);
+            document.getElementById('clientEmailShow').innerHTML = (`e-mail: ${email}`)
         }
     }
 }
