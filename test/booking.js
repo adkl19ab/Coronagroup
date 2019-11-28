@@ -1,4 +1,5 @@
 var currentClient = JSON.parse(localStorage.getItem('Brugere'));
+var currentConsultant = JSON.parse(localStorage.getItem('consultants'));
 let appointments = [];
 
 
@@ -25,7 +26,7 @@ function addBooking() {
            this.currentClient[i].name = currentClient[i].clientName;
            let newAppointment = new appointment(
                currentClient[i].name,
-               "",
+               document.getElementById('consultantChosen').value,
                document.getElementById('apptDate').value,
                document.getElementById('apptTimeStart').value,
                document.getElementById('apptTimeEnd').value);
