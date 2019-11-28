@@ -1,6 +1,7 @@
+currentClient = JSON.parse(localStorage.getItem('Brugere'));
+currentAppointment = JSON.parse(localStorage.getItem('Appointments'));
 
 function bruger() {
-    currentClient = JSON.parse(localStorage.getItem('Brugere'));
 
     for (let i = 0; i < currentClient.length; i++) {
         if (currentClient[i].Online === true) {
@@ -11,19 +12,18 @@ function bruger() {
     }
 }
 
+//var testArr = ['test'];
 
-function viewAppt(){
-    currentClient = JSON.parse(localStorage.getItem('Appointment'));
+function viewAppointment(){
 
-    for (let i = 0; i < currentClient.length; i++) {
-        if (currentClient[i].Online === true) {
-            var date = this.appointments[i].dateOfAppointment;
-            var start = this.appointments[i].startTimeOfAppointment;
-            var end = this.appointments[i].endTimeOfAppointment;
-            var consultant = this.appointments[i].nameOfConsultant;
+    for (let j = 0; j < currentClient.length; j++) {
+        if (currentClient[j].Online === true) {
+            var date = this.currentAppointment[j].dateOfAppointment;
+            var start = this.currentAppointment[j].startTimeOfAppointment;
+            var end = this.currentAppointment[j].endTimeOfAppointment;
+            var consultant = this.currentAppointment[j].nameOfConsultant;
+
             document.getElementById("Apptinfo").innerHTML = [consultant, date, start, end];
-
-
         }
     }
 }

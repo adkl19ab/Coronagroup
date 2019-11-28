@@ -19,8 +19,9 @@ class appointment {
 }
 
 
+// Funktion som tilføjer booking baseret på appointment constructor
 function addBooking() {
-    // For loot som tjekker hvilke brugere der er online, og derefter henter currentClient[i] username fra localstorage.
+    // For loop som tjekker hvilke brugere der er online, og derefter henter currentClient[i] username fra localstorage.
     for (let i = 0; i < currentClient.length; i++) {
         if (currentClient[i].Online === true) {
            this.currentClient[i].name = currentClient[i].clientName;
@@ -32,7 +33,7 @@ function addBooking() {
                document.getElementById('apptTimeEnd').value);
 
             appointments.push(newAppointment);
-            localStorage.setItem('Appointment', JSON.stringify(appointments));
+            localStorage.setItem('Appointments', JSON.stringify(appointments));
             newAppointment.promptAlertBooking();
         }
     }

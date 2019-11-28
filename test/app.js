@@ -34,7 +34,7 @@ class Client {
         alert(`Welcome ${this.clientName}, your account has been registered`);
     }
 }
-// Funktion som tilføjer pre-set konsulenter til localstorage on-load
+// Tilføjer pre-set konsulenter til localstorage on-load
 
 
     //Front-end konsulenter
@@ -111,7 +111,7 @@ function checkLogin() {
     let enteredName = document.getElementById('enteredName1');
     let enteredPass = document.getElementById('enteredPass1');
 
-    // Funktion som tjekker om det er en Klient der logger ind og sætter godkendtID til true hvis det er.
+    // Funktion som tjekker om det er en Client der logger ind og sætter godkendtID til true hvis det er.
     for (let i = 0; i < currentClient.length; i++) {
         if (enteredName.value === currentClient[i].clientName && enteredPass.value === currentClient[i].clientPassword) {
             currentClient[i].Online = true;
