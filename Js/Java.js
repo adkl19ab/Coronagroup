@@ -7,3 +7,7 @@ function sendVidere() {
         }
     }
 }
+function bookAlert(){
+    alert("Du bedes logge ind først")
+}
+
