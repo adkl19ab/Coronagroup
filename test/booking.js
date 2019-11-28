@@ -35,6 +35,7 @@ function addBooking() {
             appointments.push(newAppointment);
             localStorage.setItem('Appointments', JSON.stringify(appointments));
             newAppointment.promptAlertBooking();
+            window.location = 'Logget_ind/Brugerside.html';
         }
     }
 }

@@ -70,7 +70,7 @@ function addUser() {
 
     // Funktion som generer users baseret på tidligere beskrevet class og constructor
 
-    if (enteredName.value.length >= 8) {
+    if (enteredName.value.length >= 5) {
         var godtNavn = true;
     } else alert('Brugernavn skal minimum være 8 cifre langt!');
     if (enteredPass.value.length >= 8) {
