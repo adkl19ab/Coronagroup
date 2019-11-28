@@ -8,16 +8,39 @@
 <body>
 <div id="idBook" class="bookingForm">
 <span onclick="document.getElementById('id02').style.display='none'"
-      class="closeres" title="Close Res">&times;</span>
+
 
 <form>
     <label for="apptTime">Choose a time for your meeting:</label><br>
+    <select id="consultantChosen">
+        <!-- Front-end konsulenter -->
+        <option disabled>Front-end konsulenter</option>
+        <option value="Mohammed Ali">Mohammed Ali</option>
+        <option value="Mikkel Ditlev">Mikkel Ditlev</option>
+        <option value="Lene Ipsen">Lene Ipsen</option>
 
+        <!-- Back-end konsulenter -->
+        <option disabled>Back-end konsulenter</option>
+        <option value="Helle Nikolajsen">Helle Nikolajsen</option>
+        <option value="Bettina Gorborger">Bettina Gorborger</option>
+        <option value="Oliver Borkov">Oliver Borkov</option>
+
+        <!-- IT-rådgivning konsulenter -->
+        <option disabled>IT-Rådgivning</option>
+        <option value="Ib Christiansen">Ib Christiansen</option>
+        <option value="Fahad Nikolajsen">Fahad Nikolajsen</option>
+
+        <!-- IT-support konsulenter -->
+        <option disabled>IT-Support</option>
+        <option value="Patrick Borkov">Patrick Borkov</option>
+        <option value="Isak Hansen">Isak Hansen</option>
+    </select>
+    <br>
     <input type="time" id="apptTimeStart" name="appointmentTimeStart"
            min="09:00" max="18:00" required>
     <input type="time" id="apptTimeEnd" name="appointmentTimeEnd"
            min="09:00" max="18:00" required>
-    <input type="date" id="apptDate" name="appointmentDate">
+    <input type="date" id="apptDate" name="appointmentDate" required>
 
 
     <button type="button" id="btnBook" onclick="addBooking();">Request</button>
