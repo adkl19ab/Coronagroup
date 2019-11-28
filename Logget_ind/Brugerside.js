@@ -12,9 +12,8 @@ function bruger() {
 }
 
 
-function viewAppt(){
+function viewAppt() {
     currentClient = JSON.parse(localStorage.getItem('Appointment'));
-
     for (let i = 0; i < currentClient.length; i++) {
         if (currentClient[i].Online === true) {
             var date = this.appointments[i].dateOfAppointment;
