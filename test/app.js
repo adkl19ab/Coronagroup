@@ -36,11 +36,27 @@ class Client {
         alert(`Welcome ${this.clientName}, your account has been registered`);
     }
 }
-// Funktion som tilføjer pre-set konsulenter til localstorage on-load
+// Tilføjer pre-set konsulenter til localstorage on-load
 
-    consultants.push(new Consultant('consultant1','password1','HTML','test1@consultant.com'));
-    consultants.push(new Consultant('consultant2','password2','CSS','test2@consultant.com'));
-    consultants.push(new Consultant('consultant3','password3','Javascript','test3@consultant.com'));
+
+    //Front-end konsulenter
+    consultants.push(new Consultant('Mohammed Ali','FEpassword1','Front-end','FE1@ccc.com'));
+    consultants.push(new Consultant('Mikkel Ditlev','FEpassword2','Front-end','FE2@ccc.com'));
+    consultants.push(new Consultant('Lene Ipsen','FEpassword3','Front-end','FE3@ccc.com'));
+
+    //Back-end konsulenter
+    consultants.push(new Consultant('Helle Nikolajsen','BEpassword1','Back-end','BE1@ccc.com'));
+    consultants.push(new Consultant('Bettina Gorborger','BEpassword2','Back-end','BE2@ccc.com'));
+    consultants.push(new Consultant('Oliver Borkov','BEpassword3','Back-end','BE3@ccc.com'));
+
+
+    //IT-rådgivning konsulenter
+    consultants.push(new Consultant('Ib Christiansen','ITRpassword1','IT-Rådgivning','ITR1@ccc.com'));
+    consultants.push(new Consultant('Fahad Nikolajsen','ITRpassword2','IT-Rådgivning','ITR2@ccc.com'));
+
+    //IT-Support konsulenter
+    consultants.push(new Consultant('Patrick Borkov','ITSpassword1','IT-Support','ITS1@ccc.com'));
+    consultants.push(new Consultant('Isak Hansen','ITSpassword2','IT-Support','ITS2@ccc.com'));
 
     localStorage.setItem('consultants', JSON.stringify(consultants));
 
@@ -109,7 +125,7 @@ function checkLogin() {
     let enteredName = document.getElementById('enteredName1');
     let enteredPass = document.getElementById('enteredPass1');
 
-    // Funktion som tjekker om det er en Klient der logger ind og sætter godkendtID til true hvis det er.
+    // Funktion som tjekker om det er en Client der logger ind og sætter godkendtID til true hvis det er.
     for (let i = 0; i < currentClient.length; i++) {
         if (enteredName.value === currentClient[i].clientName && enteredPass.value === currentClient[i].clientPassword) {
             currentClient[i].Online = true;
