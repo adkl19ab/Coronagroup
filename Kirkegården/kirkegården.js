@@ -34,3 +34,14 @@ function minDate(){
     today = yyyy+'-'+mm+'-'+dd;
     document.getElementById("apptTimeStart").setAttribute("max", today);
 }
+
+// Deklærer variable samt elementId i HTML dokument hvor informationen hentes fra - Lader ikke til at være nødvendigt for nu
+// Lader det dog være.
+/* let clientName = document.getElementById('enteredName').value;
+ let clientPassword = document.getElementById('enteredPass').value;
+ let clientEmail = document.getElementById('enteredEmail').value;*/
+
+// Resetter formen til registrering af næste bruger - ikke i brug lige nu.
+// Lader til at den indbyggede funktion i HTML button submit har samme funktion
+
+// document.forms[0].reset();
