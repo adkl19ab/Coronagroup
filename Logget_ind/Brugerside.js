@@ -13,10 +13,11 @@ function bruger() {
     }
 }
 
-//var testArr = ['test'];
-
 function viewAppointment(){
 
+    if (currentAppointment === null) {
+        localStorage.setItem('Appointments', JSON.stringify([]));
+    }
     for (let j = 0; j < currentClient.length; j++) {
         if (currentClient[j].Online === true) {
             var date = this.currentAppointment[j].dateOfAppointment;

@@ -32,6 +32,7 @@ function addBooking() {
                document.getElementById('apptTimeStart').value,
                document.getElementById('apptTimeEnd').value);
 
+            appointments = JSON.parse(localStorage.getItem('Appointments'));
             appointments.push(newAppointment);
             localStorage.setItem('Appointments', JSON.stringify(appointments));
             newAppointment.promptAlertBooking();
