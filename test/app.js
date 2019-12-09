@@ -59,6 +59,10 @@ class Client {
     localStorage.setItem('consultants', JSON.stringify(consultants));
 
 function addUser() {
+    let enteredName = document.getElementById('enteredName');
+    let enteredPass = document.getElementById('enteredPass');
+    let enteredEmail = document.getElementById('enteredEmail');
+
     // Disse 3 if statements tjekker om oplysninger angivet stemmer overens med rettingslinjer.
     if (enteredName.value.length >= 5) {
         var godtNavn = true;
@@ -95,7 +99,7 @@ function addUser() {
 
 // Funktion som tjekker at den registrerede data er den samme som er indtastet i login-formen
 function checkLogin() {
-// Variabler som er sat til false.
+// Variabler som er sat til false. Bruges senere til at nægte adgang hvis information er forkert.
     let godkendtID = false;
     let godkendtCID = false;
 
