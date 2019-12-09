@@ -130,7 +130,7 @@ function checkLogin() {
         alert('Du er blevet logget ind!');
         localStorage.setItem('Brugere', JSON.stringify(currentClient));
         localStorage.setItem('consultants', JSON.stringify(currentConsultant));
-        window.location = 'Logget_ind/Brugerside.html';
+        window.location = '../Logget_ind/Brugerside.html';
     }
 }
 

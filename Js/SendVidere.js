@@ -3,7 +3,7 @@ function sendVidere() {
 
     for (let i = 0; i < currentClient.length; i++) {
         if (currentClient[i].Online === true) {
-            window.location='Logget_ind/Brugerside.html';
+            window.location='../Logget_ind/Brugerside.html';
         }
     }
 }

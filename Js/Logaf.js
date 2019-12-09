@@ -9,7 +9,7 @@ function logOff() {
             currentClient[i].Online = false;
             localStorage.setItem('Brugere', JSON.stringify(currentClient));
             alert('Du er blevet logget ud');
-            window.location='../Startside.html'
+            window.location='../Ikke_logget_ind/Startside.html'
         }
     }
 }
@@ -23,7 +23,7 @@ function ClogOff() {
             currentConsultant[i].Online = false;
             localStorage.setItem('consultants', JSON.stringify(currentConsultant));
             alert('Du er blevet logget ud');
-            window.location='../Startside.html'
+            window.location='../Ikke_logget_ind/Startside.html'
         }
     }
 }

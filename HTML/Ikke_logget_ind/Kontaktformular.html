@@ -4,22 +4,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Form Design</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/Kontaktformular.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/Startside.css">
+    <title>Kontakt Form</title>
+    <link rel="stylesheet" type="text/css" href="../../CSS/Kontaktformular.css">
+    <link rel="stylesheet" type="text/css" href="../../CSS/Startside.css">
 </head>
-<body>
-    <a href="Brugerside.html"><img id="CCC1" src='../images/CCC1.png' alt="CCC" width="200" height="100" align="left"></a>
+<body class="b1" onload="sendVidere()">
+    <a href="Startside.html"><img id="CCC1" src='../../images/CCC1.png' alt="CCC" width="200" height="100" align="left"></a>
     <br>
     <ul style="margin-top: 85px">
-        <li><a href="Brugerside.html">Hjem</a></li>
+        <li><a href="Startside.html">Hjem</a></li>
         <li><a href="#news">Nyheder</a></li>
         <li><a href="Kontaktformular.html">Kontakt</a></li>
-        <li><a href="SkillsfilterL.html">Konsultenter</a></li>
-        <li><a href="../test/booking.html">Booking</a></li>
-        <li style="float: right"><a href="#" onclick="logOff(); ClogOff();">Log ud</a></li>
+        <li><a href="Skillsfilter.html">Konsultenter</a></li>
+        <li><a href="#" onclick="bookAlert()">Booking</a></li>
+        <li style="float: right"><a href="Startside.html">Til Login</a></li>
     </ul>
-
+<div class="Anime">
     <div class="contact-title">
         <br><br><br><br>
         <h1>Say Hello</h1>
@@ -35,12 +35,16 @@
 
             <textarea name="message" id="mMessage" class="form-control" placeholder="Message" rows="4"></textarea><br>
 
-            <input type="submit" class="form-control submit" value="SEND MESSAGE" onclick="validateEmail(mEmail.value); ">
-        </form>
-    </div>
+            <input type="submit" class="form-control submit" value="SEND MESSAGE" onclick="validateEmail(mEmail.value);">
 
-    <script src="../Js/Kontakt.js"></script>
-    <script src="../Js/logaf.js"></script>
+        </form>
+
+
+    </div>
+</div>
+    <script src="../../Js/Kontakt.js"> </script>
+<script src="../../Js/SendVidere.js"></script>
 </body>
+
 </html>
 
