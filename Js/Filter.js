@@ -1,10 +1,10 @@
 /*eslint no-undef: "error"*/
 /*eslint-env node*/
 
-filterSelection("all")
+filterSelection("all"); // Viser alle konsulenter når siden bliver loadet.
 function filterSelection(c) {
     var x, i;
-    x = document.getElementsByClassName("filterDiv");
+    x = document.getElementsByClassName("filterDiv"); // x bliver sat til filterdiv som er et id på alle konsulenter
     if (c == "all") c = "";
     // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
     for (i = 0; i < x.length; i++) {
