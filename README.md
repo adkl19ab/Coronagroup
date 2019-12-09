@@ -3,7 +3,7 @@ Gruppe 11 - CBS HA(it) - 1. semester
 
 ## Forretningsobjekter:
 
-OptiShare er en bestillingsplatform, der giver kunder mulighed for at oprette sig som bruger i systemet, og booke tid hos en IT-kundekonsulent. 
+Client Consultant Connect(CCC) er en bestillingsplatform, der giver kunder mulighed for at oprette sig som bruger i systemet, og booke tid hos en IT-kundekonsulent. 
 
 I systemet kan kunderne vælge mellem forskellige færdigheder, og krydse de af de søger i en konsulent. Derefter finder systemet frem til de konsulenter, der besidder de forskellige kompetencer og dermed bedst kan opfylde kundens behov. Systemet skal derfor holde styr på konsulenter og deres kompetencer, som er produktet.
 
