@@ -13,6 +13,7 @@ function bruger() {
     }
 }
 
+// Caroline - Gøre så man kan se mere end en booking.
 function viewAppointment(){
 
     if (currentAppointment === null) {

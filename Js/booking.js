@@ -18,6 +18,7 @@ class appointment {
     }
 }
 
+//Caroline - mere interaktion i vores appointment class, så den henter information fra consultant class.
 
 // Funktion som tilføjer booking baseret på appointment constructor
 function addBooking() {
