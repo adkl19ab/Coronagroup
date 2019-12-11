@@ -1,16 +1,16 @@
+/* Mathias: Optimering af kode: I og med der laves et nyt tomt array hver gang, kunne man lave et for-loop med et if-else statement.
+dette skulle hjælpe til at brugeren kunne sende mere end én besked uden den forrige bliver overskrevet.*/
 
-const beskeder = [];
+let beskeder = [];
 
 function validateEmail(sEmail) {
     var reEmail = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
-
     if (!sEmail.match(reEmail)) {
-        alert("Invalid email address");
+        alert(" Ugyldig email");
         return false;
     }
     if (sEmail.match(reEmail)) {
             alert("Besked Sendt!");
-            //ev.preventDefault(); //stopper form i at submit
 
             var afsenderInfo = {
                 Navn: document.getElementById('mName').value,
@@ -18,9 +18,9 @@ function validateEmail(sEmail) {
                 Message: document.getElementById('mMessage').value
             };
             beskeder.push(afsenderInfo);
-            document.forms[0].reset(); //sletter formen til næste entry
+            document.forms[0].reset(); //Sletter formen når besked er sendt.
 
-            // gem til local storage
+            // Gemmmer til local storage - under key'en "Besked"
             localStorage.setItem('Besked', JSON.stringify(beskeder));
         }
         return true;
