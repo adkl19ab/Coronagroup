@@ -6,7 +6,7 @@ app.use(morgan('combined'));
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'password',
+    password: 'kode',
     database: 'projekt2020'
 });
 
