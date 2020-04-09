@@ -2,26 +2,40 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const mysql = require('mysql');
-
-
 app.use(morgan('combined'));
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'projekt2020'
+});
+
+connection.connect(function(err){
+    if (err) throw err;
+console.log('We did it bois!');
+connection.query("SELECT * FROM USERS", function (err, result, fields){
+    if (err) throw err;
+    console.log(result);
+});
+});
 
 app.get('/users/:idUSERS', (req, res)=>{
-    console.log("Fetching user with idUSERS:" + req.params.idUSERS)
+    console.log("Fetching user with idUSERS:" + req.params.idUSERS);
 
-    const connection = mysql.createConnection({
-        //change to your own host
-        host: 'DESKTOP-QJC3050',
-        user: 'root',
-        // change for your own database
-        database: 'Local instance MySQL80'
-    })
-connection.query("SELECT * FROM projekt2020.tables.users", (err, rows, fields) =>{
-    console.log("I think we fetched users successfully")
+/*
+connection.query("SELECT * FROM fish", function(err, rows) {
+if(error)
+    throw error;
+results.forEach(result => {
+    console.log(result);
+});
+)}
+ */
+
     res.json(rows)
+        console.log("I think we fetched users successfully")
 })
    // res.end();
-})
 
 
 app.get("/", (req, res) => {
