@@ -2,8 +2,9 @@
   "name": "projekt2020",
   "version": "1.0.0",
   "description": "Gruppe 11 - CBS HA(it) - 1. semester",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +19,8 @@
   "homepage": "https://github.com/adkl19ab/Projekt2020#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.3"
-  },
-  "devDependencies": {}
+  }
 }
