@@ -1,4 +1,4 @@
-var currentClient = JSON.parse(localStorage.getItem('Brugere'));
+ currentClient = JSON.parse(localStorage.getItem('Brugere'));
 var currentConsultant = JSON.parse(localStorage.getItem('consultants'));
 let appointments = [];
 
