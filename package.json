@@ -4,6 +4,7 @@
   "description": "Gruppe 11 - CBS HA(it) - 1. semester",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
