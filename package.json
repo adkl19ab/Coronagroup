@@ -2,7 +2,7 @@
   "name": "projekt2020",
   "version": "1.0.0",
   "description": "Gruppe 11 - CBS HA(it) - 1. semester",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,20 +17,6 @@
   },
   "homepage": "https://github.com/adkl19ab/Projekt2020#readme",
   "dependencies": {
-    "core-util-is": "^1.0.2",
-    "express": "^4.17.1",
-<<<<<<< HEAD
-    "fs": "0.0.1-security",
-    "nodemon": "^2.0.3",
-    "webpack-dev-server": "^3.10.3"
-  },
-  "devDependencies": {
-    "node-sass": "^4.13.1"
+    "express": "^4.17.1"
   }
-=======
-    "nodemon": "^2.0.3",
-    "webpack-dev-server": "^3.10.3"
-  },
-  "devDependencies": {}
->>>>>>> 22a2fb74f1df33a370b5e6179cfc8a1cfb59efc2
 }
