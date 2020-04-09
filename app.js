@@ -1,14 +1,21 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+const morgan = require('morgan');
 
-const hostname = '127.0.0.1';
-const port = 4000;
+app.use(morgan('combined'));
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hej Svin');
+
+app.get("/", (req, res) => {
+    console.log("Responding to root route")
+    res.send("Lad mig spille warzone")
 });
 
-server.listen(port, hostname, () => {
-    console.log(`svinet kører på http://${hostname}:${port}/`);
+app.get("/users", (req, res) => {
+   var user1 = {firstName: "Adam", lastName: "Klint"}
+   const user2 = {firstName: "Johan", lastName: "Isak"}
+   res.json([user1, user2])
+});
+
+app.listen(4000, ()=> {
+   console.log("Svinet er oppe og køre")
 });
