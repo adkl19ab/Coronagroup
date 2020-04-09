@@ -18,8 +18,6 @@ class appointment {
     }
 }
 
-//Caroline - mere interaktion i vores appointment class, så den henter information fra consultant class.
-
 // Funktion som tilføjer booking baseret på appointment constructor
 function addBooking() {
     // For loop som tjekker hvilke brugere der er online, og derefter henter currentClient[i] username fra localstorage.
