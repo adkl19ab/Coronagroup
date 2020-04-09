@@ -6,6 +6,9 @@ export class User {
         this.email = email;
         this.online = online;
     }
+    promptAlert(){
+        alert(`Welcome ${this.name}, your account has been registered`);
+    }
 }
 
 export class Client extends User {
