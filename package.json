@@ -1,0 +1,23 @@
+{
+  "name": "projekt2020",
+  "version": "1.0.0",
+  "description": "Gruppe 11 - CBS HA(it) - 1. semester",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adkl19ab/Projekt2020.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adkl19ab/Projekt2020/issues"
+  },
+  "homepage": "https://github.com/adkl19ab/Projekt2020#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3"
+  }
+}
