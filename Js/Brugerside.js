@@ -3,6 +3,7 @@ currentAppointment = JSON.parse(localStorage.getItem('Appointments'));
 var yikes = 20;
 
 console.log(yikes);
+
 function bruger() {
 
     for (let i = 0; i < currentClient.length; i++) {
@@ -15,9 +16,8 @@ function bruger() {
     }
 }
 
-// Caroline - Gøre så man kan se mere end en booking.
 /*
-Isak - Det vil være en god ide at tilføje mere funktionalitet til både booking-funktionen og viewAppointment.
+
 Det er på nuværende tidspunkt ikke muligt at vise mere end én booking ad gangen på bookingsiden. Derudover vil vi gerne
 tilføje mere samspil mellem consultant og appointment klassen, så at den henter navnet på konsulenten, samt kontaktinformation,
 ud fra konsulentens attributter fra klassen.
