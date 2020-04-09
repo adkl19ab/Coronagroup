@@ -1,6 +1,8 @@
 currentClient = JSON.parse(localStorage.getItem('Brugere'));
 currentAppointment = JSON.parse(localStorage.getItem('Appointments'));
+var yikes = 20;
 
+console.log(yikes);
 function bruger() {
 
     for (let i = 0; i < currentClient.length; i++) {
