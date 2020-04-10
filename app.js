@@ -1,25 +1,37 @@
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
+//const morgan = require('morgan');
 const mysql = require('mysql');
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
-    password: 'password',
+    password: 'Mercedes1',
     database: 'projekt2020'
 });
 
-connection.connect(function(err){
-    if (err) throw err;
-console.log('We did it bois!');
-connection.query("SELECT * FROM USERS", function (err, result, fields){
-    if (err) throw err;
-    console.log(result);
-});
+connection.connect(function(error){
+    if (!!error) {
+        console.log("Error");
+    } else {
+        console.log("connected")
+    }
 });
 
+app.get("/", function(req,resp){
+    connection.query("SELECT * FROM users", function(error, rows, fields){
+    if (!!error){
+        console.log("Error in the query");
+    } else {
+        console.log("SUCCES!\n");
+        //console.log(rows[0].name);
+        resp.json(rows);
+    }
+})
+})
+
+/*
 app.get('/users/:idUSERS', (req, res)=>{
     console.log("Fetching user with idUSERS:" + req.params.idUSERS);
 
@@ -40,7 +52,7 @@ app.get("/users", (req, res) => {
    const user2 = {firstName: "Johan", lastName: "Isak"}
    res.json([user1, user2])
 });
+*/
 
 app.listen(4000, ()=> {
-   console.log("Svinet er oppe og køre")
 });
