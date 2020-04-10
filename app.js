@@ -19,7 +19,7 @@ connection.connect(function(error){
     }
 });
 
-app.get("/", function(req,resp){
+app.get("/users", function(req,resp){
     connection.query("SELECT * FROM users", function(error, rows, fields){
     if (!!error){
         console.log("Error in the query");
@@ -29,6 +29,18 @@ app.get("/", function(req,resp){
         resp.json(rows);
     }
 })
+})
+
+app.get("/users/1", function(req,resp){
+    connection.query("SELECT * FROM users", function(error, rows, fields){
+        if (!!error){
+            console.log("Error in the query");
+        } else {
+            console.log("SUCCES!\n");
+            //console.log(rows[0].name);
+            resp.json(rows[0]);
+        }
+    })
 })
 
 /*
