@@ -34,16 +34,6 @@ app.get("/users", function(req,resp){
         }
     })
 })
-
-function getConnection() {
-    return mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'password',
-        database: 'Projekt2020'
-    })
-}
-
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.post('/client_create', (req, res) => {
@@ -54,18 +44,29 @@ app.post('/client_create', (req, res) => {
     const name = req.body.client_name
     const password = req.body.client_password
 
-    const queryString = "INSERT INTO users (name, password) VALUES (?, ?)"
 
-    getConnection().query(queryString, [name, password], (err, results, fields) =
-    if (err){
+
+function getConnection() {
+    return mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'password',
+        database: 'Projekt2020'
+    })
+}
+const queryString = "INSERT INTO users (name, password) VALUES (?, ?)";
+
+    getConnection().query(queryString, [name, password], (err, results, fields) => {
+    if (err) {
         console.log('Failed to create new user' + err)
         res.sendStatus(500)
         return
     }
 
-    console.log('Inserted a new user with id: ', results.insertId)
+    console.log('Inserted a new user with id: ', results.insertId);
     res.end()
-    )
+})
+res.end()
 })
 
 app.get("/users/1", function(req,resp){
