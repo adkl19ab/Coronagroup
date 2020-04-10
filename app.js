@@ -3,10 +3,11 @@ const app = express();
 const morgan = require('morgan');
 const mysql = require('mysql');
 app.use(morgan('combined'));
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'kode',
+    password: 'password',
     database: 'projekt2020'
 });
 
@@ -22,20 +23,11 @@ connection.query("SELECT * FROM USERS", function (err, result, fields){
 app.get('/users/:idUSERS', (req, res)=>{
     console.log("Fetching user with idUSERS:" + req.params.idUSERS);
 
-/*
-connection.query("SELECT * FROM fish", function(err, rows) {
-if(error)
-    throw error;
-results.forEach(result => {
-    console.log(result);
-});
-)}
- */
 
     res.json(rows)
         console.log("I think we fetched users successfully")
 })
-   // res.end();
+//res.end();
 
 
 app.get("/", (req, res) => {
