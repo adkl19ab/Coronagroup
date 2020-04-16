@@ -32,7 +32,7 @@ app.post('/auth', function(request, response) {
             if (results.length > 0) {
                 request.session.loggedin = true;
                 request.session.username = username;
-                response.redirect('/home');
+                response.redirect('http://localhost:63342/Projekt2020/HTML/Logget_ind/SkillsfilterL.html');
             } else {
                 response.send('Incorrect Username and/or Password!');
             }

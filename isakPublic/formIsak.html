@@ -5,13 +5,37 @@
 </head>
 <body>
     <div>
-        Opret dig som klient ved at udflyde nedenstående formular
+        <font size="6">Opret dig i systemet ved at udfylde nedenstående formular</font>
+        <br>
+        <br>
+        <br>
         <form action="/client_create" method="POST">
             <input placeholder = "Fornavn" name="client_name"/>
-            <input placeholder="Efternavn" name="client_password"/>
+            <input placeholder= "Efternavn" name="client_password"/>
+            <input placeholder= "BrugerType" name="client_userType"/>
+            <input placeholder= "Kompetence" name="client_kompetence"/>
             <button>Opret bruger</button>
         </form>
     </div>
+    <br>
+    <br>
+    <br>
+<b>Type af bruger</b>
+    <br>
+    <br>
+1 = Admin
+    <br>
+2 = Konsulent
+    <br>
+3 = Bruger
+    <br>
+    <br>
+    <br>
+    <br>
+    <b>Type af kompetence (Kun for konsulenter)</b>
+    <br>
+    <br>
+(Indsæt tabel når det er muligt)
 
 </body>
 </html>

@@ -43,6 +43,8 @@ app.post('/client_create', (req, res) => {
     console.log('Fornavn: ' + req.body.client_name)
     const name = req.body.client_name
     const password = req.body.client_password
+    const userType = req.body.client_userType
+    const kompetence = req.body.client_kompetence
 
 
 
@@ -56,7 +58,7 @@ function getConnection() {
 }
 const queryString = "INSERT INTO users (name, password) VALUES (?, ?)";
 
-    getConnection().query(queryString, [name, password], (err, results, fields) => {
+    getConnection().query(queryString, [name, password, userType, kompetence], (err, results, fields) => {
     if (err) {
         console.log('Failed to create new user' + err)
         res.sendStatus(500)
