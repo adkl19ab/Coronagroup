@@ -44,7 +44,7 @@ app.post('/client_create', (req, res) => {
     const name = req.body.client_name
     const password = req.body.client_password
     const userType = req.body.client_userType
-    const kompetence = req.body.client_kompetence
+    const idSKILL = req.body.client_idSKILL
 
 
 
@@ -56,9 +56,9 @@ function getConnection() {
         database: 'Projekt2020'
     })
 }
-const queryString = "INSERT INTO users (name, password) VALUES (?, ?)";
+const queryString = "INSERT INTO users (name, password, userType, idSKILL) VALUES (?, ?, ?, ?)";
 
-    getConnection().query(queryString, [name, password, userType, kompetence], (err, results, fields) => {
+    getConnection().query(queryString, [name, password, userType, idSKILL], (err, results, fields) => {
     if (err) {
         console.log('Failed to create new user' + err)
         res.sendStatus(500)
