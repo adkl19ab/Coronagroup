@@ -17,6 +17,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
@@ -50,7 +51,7 @@ app.get('/home', function(request, response) {
     } else {
         response.send('Please login to view this page!');
     }
-    response.end();
+    response.end();e
 });
 
 app.listen(3500);

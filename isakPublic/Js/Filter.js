@@ -12,7 +12,14 @@ function filterSelection(c) {
         if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
     }
 }
+window.onload = function(){
+    const form = document.getElementById('profileform');
+    const name = document.getElementById('profilename');
 
+    fetch('/users').then(response => response.json()).then(json=> {
+        debugger;
+});
+};
 // Show filtered elements
 function w3AddClass(element, name) {
     var i, arr1, arr2;
