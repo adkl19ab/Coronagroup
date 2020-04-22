@@ -1,3 +1,6 @@
+/*
+
+
 const mysql = require('mysql');
 const express = require('express');
 const session = require('express-session');
@@ -44,8 +47,8 @@ app.post('/auth', function(request, response) {
         response.end();
     }
 });
-*/
-app.get('/home', function(request, response) {
+
+aapp.get('/home', function(request, response) {
     if (request.session.loggedin) {
         response.send('Welcome back, ' + request.session.username + '!');
     } else {
@@ -55,3 +58,5 @@ app.get('/home', function(request, response) {
 });
 
 app.listen(3500);
+
+*/

@@ -33,7 +33,14 @@ router.get('/consultants', function(request, response) {
     response.sendFile(path.resolve('public','HTML', 'Logget_ind', 'SkillsfilterL.html'));
 });
 
-
+router.get('/home', function(request, response) {
+    if (request.session.loggedin) {
+        response.send('Welcome back, ' + request.session.username + '!');
+    } else {
+        response.send('Please login to view this page!');
+    }
+    response.end();
+});
 
 router.get("/users", function(req,resp){
 

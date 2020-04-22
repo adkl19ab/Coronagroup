@@ -3,6 +3,7 @@
 const mysql = require('mysql');
 const express = require('express');
 const app = express();
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const router = require('./routes/client')
 
@@ -10,6 +11,11 @@ const router = require('./routes/client')
 
 app.use(express.static('Public'))
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 
 
 const connection = mysql.createConnection({
