@@ -28,7 +28,6 @@ function appendData(data){
     for (var i = 0; i < data.length; i++){
         var div = document.createElement("div");
        html += "<tr><td>"+ data[i].name + "</td><td>" + data[i].password + "</td><td>" + data[i].idSKILL + "</td></tr>"
-        div.innerHTML = "";
         mainContainer.appendChild(div);
     }
 
