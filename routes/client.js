@@ -6,18 +6,26 @@ const router = express.Router()
 const mysql = require('mysql')
 const path = require('path');
 
+// Definerer vores MySQL connection funktion som bliver kaldt som const i flere af vores funktioner
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'Projekt2020'
+});
+
 router.get('/messages', (req, res) => {
     console.log('Show me some messages')
     res.end()
 });
-/*
-router.get('/register', function(req, res) {
-    res.sendFile(path.join('/Public/register.html'));
-});
-*/
 
-router.get('/register', function(request, response) {
-    response.sendFile(path.resolve('public','register.html'));
+router.get('/register', function(req, res) {
+    res.sendFile(path.resolve('public','register.html'));
+});
+
+router.get('/login', function(req, res) {
+    res.sendFile(path.resolve('public','login.html'));
 });
 
 router.get('/consultants', function(request, response) {
@@ -27,8 +35,6 @@ router.get('/consultants', function(request, response) {
 
 
 router.get("/users", function(req,resp){
-
-    const connection = getConnection()
 
     connection.query("SELECT * FROM users", function(error, rows, fields){
         if (!!error){
@@ -43,8 +49,6 @@ router.get("/users", function(req,resp){
 
 router.post('/client_create', (req, res) => {
     console.log('Trying to create a new user')
-
-    const connection = getConnection()
 
     console.log('Fornavn: ' + req.body.client_name)
     const name = req.body.client_name
@@ -69,8 +73,6 @@ router.post('/client_create', (req, res) => {
 
 router.get("/users/1", function(req,resp){
 
-    const connection = getConnection()
-
     connection.query("SELECT * FROM users", function(error, rows, fields){
         if (!!error){
             console.log("Error in the query");
@@ -82,6 +84,29 @@ router.get("/users/1", function(req,resp){
     })
 })
 
+router.post('/auth', function(request, response) {
+    var username = request.body.username;
+    var password = request.body.password;
+
+    if (username && password) {
+        connection.query('SELECT * FROM users WHERE name = ? AND password = ?', [username, password], function(error, results, fields) {
+            if (results.length > 0) {
+                request.session.loggedin = true;
+                request.session.username = username;
+                response.redirect('/home');
+            } else {
+                response.send('Incorrect Username and/or Password!');
+            }
+            response.end();
+        });
+    } else {
+        response.send('Please enter Username and Password!');
+        response.end();
+    }
+});
+
+
+/*
 function getConnection() {
     return mysql.createConnection({
         host: 'localhost',
@@ -90,6 +115,6 @@ function getConnection() {
         database: 'Projekt2020'
     })
 }
-
+*/
 
 module.exports = router

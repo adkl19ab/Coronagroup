@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.get('/login', function(request, response) {
     response.sendFile(path.join(__dirname + '/Public/login.html'));
 });
-
+/*
 app.post('/auth', function(request, response) {
     var username = request.body.username;
     var password = request.body.password;
@@ -44,7 +44,7 @@ app.post('/auth', function(request, response) {
         response.end();
     }
 });
-
+*/
 app.get('/home', function(request, response) {
     if (request.session.loggedin) {
         response.send('Welcome back, ' + request.session.username + '!');
