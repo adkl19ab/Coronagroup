@@ -1,14 +1,5 @@
 /*eslint no-undef: "error"*/
 /*eslint-env node*/
-function appendData(data){
-var mainContainer = document.getElementById("myData");
-
-for (var i = 0; i < data.length; i++){
-    var div = document.createElement("div");
-    div.innerHTML = 'Name: ' + data[i].name;
-    mainContainer.appendChild(div);
-    }
-}
 filterSelection("all"); // Viser alle konsulenter når siden bliver loadet.
 function filterSelection(c) {
     var x, i;
@@ -28,6 +19,16 @@ window.onload = function(){
         debugger;
 });
 };
+
+function appendData(data){
+    var mainContainer = document.getElementById("myData");
+
+    for (var i = 0; i < data.length; i++){
+        var div = document.createElement("div");
+        div.innerHTML = 'Name: ' + data[i].name + ' ' +  'Skill:' + data[i].idSKILL;
+        mainContainer.appendChild(div);
+    }
+}
 fetch('/users').then(function(response){
 })
     .catch(function(err){
