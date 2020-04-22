@@ -1,5 +1,7 @@
 /*eslint no-undef: "error"*/
 /*eslint-env node*/
+var table = document.getElementById('myTable');
+var tbody = table.getElementsByTagName('tbody');
 filterSelection("all"); // Viser alle konsulenter når siden bliver loadet.
 function filterSelection(c) {
     var x, i;
@@ -22,12 +24,22 @@ window.onload = function(){
 
 function appendData(data){
     var mainContainer = document.getElementById("myData");
-
+    var html = ""
     for (var i = 0; i < data.length; i++){
         var div = document.createElement("div");
-        div.innerHTML = 'Name: ' + data[i].name + ' ' +  'Skill:' + data[i].idSKILL;
+       html += "<tr><td>"+ data[i].name + "</td><td>" + data[i].password + "</td><td>" + data[i].idSKILL + "</td></tr>"
+        div.innerHTML = "";
         mainContainer.appendChild(div);
     }
+
+for(i=0; i < mainContainer.length; i++ ){
+    html += data[i].appendData();
+}
+
+// The table body will contain the string "html" which contains a string similar to this: ""<tr><td>"+ this.name + "</td><td>" + this.location + "</td><td>"...."
+// the table can read the string properly and inserts everything correctly
+tbody[0].innerHTML = html;
+
 }
 fetch('/users').then(function(response){
 })
