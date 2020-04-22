@@ -2,11 +2,12 @@
 // Denne fil indeholder alle routerne for vores klienter på siden.
 
 const express = require('express')
-const router = express.Router()
+const bodyParser = require('body-parser');
 const mysql = require('mysql')
 const path = require('path');
+const router = express.Router()
 
-// Definerer vores MySQL connection funktion som bliver kaldt som const i flere af vores funktioner
+// Definerer vores MySQL connection funktion
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -115,6 +116,4 @@ function getConnection() {
         database: 'Projekt2020'
     })
 }
-*/
-
-module.exports = router
+*/module.exports = router
