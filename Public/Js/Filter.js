@@ -21,7 +21,7 @@ window.onload = function(){
         debugger;
 });
 };
-½
+
 function appendData(data){
     var mainContainer = document.getElementById("myData");
     var html = ""
