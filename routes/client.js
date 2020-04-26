@@ -55,8 +55,34 @@ router.get("/users", function(req,resp){
     })
 })
 
+router.get("/skills", function(req,resp){
+
+    connection.query("SELECT * FROM skills", function(error, rows, fields){
+        if (!!error){
+            console.log("Error in the query");
+        } else {
+            console.log("SUCCES!\n");
+            //console.log(rows[0].name);
+            resp.json(rows);
+        }
+    })
+})
+
+router.get("/usertype", function(req,resp){
+
+    connection.query("SELECT * FROM usertype", function(error, rows, fields){
+        if (!!error){
+            console.log("Error in the query");
+        } else {
+            console.log("SUCCES!\n");
+            //console.log(rows[0].name);
+            resp.json(rows);
+        }
+    })
+})
+
 router.post('/client_create', (req, res) => {
-    console.log('Trying to create a new user')
+    console.log('Trying to create a new user');
 
     console.log('Fornavn: ' + req.body.client_name)
     const name = req.body.client_name
@@ -68,8 +94,8 @@ router.post('/client_create', (req, res) => {
 
     connection.query(queryString, [name, password, userType, idSKILL], (err, results, fields) => {
         if (err) {
-            console.log('Failed to create new user' + err)
-            res.sendStatus(500)
+            console.log('Failed to create new user' + err);
+            res.sendStatus(500);
             return
         }
 
@@ -117,9 +143,9 @@ router.post('/auth', function(request, response) {
 /*
 function getConnection() {
     return mysql.createConnection({
-        host: 'localhost',
+        host: '127.0.0.1',
         user: 'root',
-        password: 'password',
+        password: 'Mercedes1',
         database: 'Projekt2020'
     })
 }
