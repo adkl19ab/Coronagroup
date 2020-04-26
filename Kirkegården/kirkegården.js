@@ -12,7 +12,7 @@ var user = {
     username: document.getElementById('enteredName').value,
     password: document.getElementById('enteredPass').value,
     email: document.getElementById('enteredEmail').value
-}
+};
 users.push(user);
 
 

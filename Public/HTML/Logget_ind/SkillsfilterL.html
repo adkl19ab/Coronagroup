@@ -17,11 +17,13 @@
     <!-- NavBar -->
     <ul>
         <li><a href="/HTML/Ikke_logget_ind/Startside.html">Hjem</a></li>
-        <li><a href="SkillsfilterL.html">Konsulenter</a></li>
+        <li><a href="http://localhost:3500/consultants">Konsulenter</a></li>
         <li><a href="booking.html">Booking</a></li>
     </ul>
 </header>
-
+<br>
+<br>
+<br>
 
 <body  id="body">
 <table id="myTable">
@@ -29,7 +31,7 @@
         <tr>
             <th><b>Name</b></th>
             <th><b>Password</b></th>
-            <th><b>ID</b></th>
+            <th><b>Kompetence ID</b></th>
         </tr>
         </thead>
         <tbody>
@@ -38,7 +40,16 @@
         </tfoot>
     </table>
 <div id="myData"></div>
-<!-- Control buttons -->
+<br>
+<br>
+<br>
+<b>Klik her for oversigt over kompetencer, og hvilke ID de har:</b>
+<a href="http://localhost:3500/userskills">Kompetencer</a>
+<br>
+<br>
+<br>
+
+<!-- Control buttons
 <div id="myBtnContainer">
     <button class="btn active" onclick="filterSelection('all')">Vis Alle</button>
     <button class="btn" onclick="filterSelection('Front-end')"> Front-end</button>
@@ -46,8 +57,8 @@
     <button class="btn" onclick="filterSelection('IT-Rådgivning')"> IT-Rådgivning</button>
     <button class="btn" onclick="filterSelection('IT-Support')"> IT-Support</button>
 </div>
-
-<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
+-->
+<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories)
 <div class="container">
     <div class="filterDiv Front-end"><img src="../../images/personicon.png" alt=" " id="img"><p>Mohammed Ali specialist i Front-end development herunder .......</p></div>
     <div class="filterDiv IT-Support"><img src="../../images/personicon.png" alt=" " id="img"><p>Isak Hansen specialist i IT-Support development herunder .......</p></div>
@@ -61,7 +72,7 @@
     <div class="filterDiv IT-Rådgivning"><img src="../../images/personicon.png" alt=" " id="img"><p>Ip Christiansen specialist i IT-Rådgivning development herunder .......</p></div>
 
 </div>
-
+-->
 
 <script src="../../Js/Logaf.js"></script>
 <script src="../../Js/Filter.js"></script>

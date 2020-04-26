@@ -19,15 +19,15 @@ window.onload = function(){
 
     fetch('/users').then(response => response.json()).then(json=> {
         debugger;
-});
+})
 };
 
 function appendData(data){
     var mainContainer = document.getElementById("myData");
-    var html = ""
+    var html = "";
     for (var i = 0; i < data.length; i++){
         var div = document.createElement("div");
-       html += "<tr><td>"+ data[i].name + "</td><td>" + data[i].password + "</td><td>" + data[i].idSKILL + "</td></tr>"
+       html += "<tr><td>"+ data[i].name + "</td><td>" + data[i].password + "</td><td>" + data[i].idSKILL + "</td></tr>";
         mainContainer.appendChild(div);
     }
 

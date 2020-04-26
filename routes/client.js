@@ -1,11 +1,11 @@
 
 // Denne fil indeholder alle routerne for vores klienter på siden.
 
-const express = require('express')
+const express = require('express');
 const bodyParser = require('body-parser');
-const mysql = require('mysql')
+const mysql = require('mysql');
 const path = require('path');
-const router = express.Router()
+const router = express.Router();
 
 // Definerer vores MySQL connection funktion
 
@@ -32,6 +32,12 @@ router.get('/login', function(req, res) {
 router.get('/consultants', function(request, response) {
     response.sendFile(path.resolve('public','HTML', 'Logget_ind', 'SkillsfilterL.html'));
 });
+router.get('/userskills', function(request, response) {
+    response.sendFile(path.resolve('public','HTML', 'UserSkills.html'));
+});
+router.get('/booking', function(request, response) {
+    response.sendFile(path.resolve('public','HTML', 'Logget_ind', 'booking.html'));
+});
 
 router.get('/home', function(request, response) {
     if (request.session.loggedin) {
@@ -53,7 +59,7 @@ router.get("/users", function(req,resp){
             resp.json(rows);
         }
     })
-})
+});
 
 router.get("/skills", function(req,resp){
 
@@ -66,7 +72,7 @@ router.get("/skills", function(req,resp){
             resp.json(rows);
         }
     })
-})
+});
 
 router.get("/usertype", function(req,resp){
 
@@ -79,16 +85,16 @@ router.get("/usertype", function(req,resp){
             resp.json(rows);
         }
     })
-})
+});
 
 router.post('/client_create', (req, res) => {
     console.log('Trying to create a new user');
 
-    console.log('Fornavn: ' + req.body.client_name)
-    const name = req.body.client_name
-    const password = req.body.client_password
-    const userType = req.body.client_userType
-    const idSKILL = req.body.client_idSKILL
+    console.log('Fornavn: ' + req.body.client_name);
+    const name = req.body.client_name;
+    const password = req.body.client_password;
+    const userType = req.body.client_userType;
+    const idSKILL = req.body.client_idSKILL;
 
     const queryString = "INSERT INTO users (name, password, userType, idSKILL) VALUES (?, ?, ?, ?)";
 
@@ -96,13 +102,13 @@ router.post('/client_create', (req, res) => {
         if (err) {
             console.log('Failed to create new user' + err);
             res.sendStatus(500);
-            return
+
         }
 
         console.log('Inserted a new user with id: ', results.insertId);
-        res.end()
+        res.end();
     })
-    res.end()
+    res.end();
 })
 
 router.get("/users/1", function(req,resp){
@@ -116,7 +122,7 @@ router.get("/users/1", function(req,resp){
             resp.json(rows[0]);
         }
     })
-})
+});
 
 router.post('/auth', function(request, response) {
     var username = request.body.username;
@@ -149,4 +155,4 @@ function getConnection() {
         database: 'Projekt2020'
     })
 }
-*/module.exports = router
+*/module.exports = router;

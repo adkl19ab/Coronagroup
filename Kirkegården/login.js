@@ -21,7 +21,7 @@ document.getElementById("registerButton").onclick = function() {
     var newUsertype = document.getElementById("usertype").value;
     allUsers.push({username: newUsername, password: newPassword, email: newEmail, company: newCompany,
     address: newAddress, usertype: newUsertype})
-}
+};
 }
 
 

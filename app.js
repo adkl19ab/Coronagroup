@@ -5,12 +5,12 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const router = require('./routes/client')
+const router = require('./routes/client');
 
 //Vi loader her vores andre JS filer
 
-app.use(express.static('Public'))
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(express.static('Public'));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
     secret: 'secret',
     resave: true,
@@ -32,6 +32,5 @@ connection.connect(function(error){
         console.log("connected")
     }
 });
-app.use(router)
-app.listen(3500, ()=> {
-});
+app.use(router);
+app.listen(3500, ()=> {});
