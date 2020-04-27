@@ -125,6 +125,27 @@ router.get("/users/1", function(req,resp){
     })
 });
 
+router.post('/delete2', (req, res) => {
+    console.log('Trying to delete a user');
+
+console.log('Fornavn: ' + req.body.customer_Email);
+const Email = req.body.customer_Email;
+
+const Query = "DELETE FROM users WHERE Email = ?"
+
+connection.query(Query, [Email], (err, results, fields) => {
+    if (err) {
+        console.log('Failed to delete a user' + err);
+        res.sendStatus(500);
+
+    }
+    console.log('Deleted a user with id: ', results.insertId);
+res.end();
+})
+res.end();
+})
+
+
 router.post('/auth', function(request, response) {
     var username = request.body.username;
     var password = request.body.password;
@@ -145,7 +166,6 @@ router.post('/auth', function(request, response) {
         response.end();
     }
 });
-
 
 /*
 function getConnection() {
