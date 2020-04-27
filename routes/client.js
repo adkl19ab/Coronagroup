@@ -50,7 +50,7 @@ router.get('/home', function(request, response) {
 
 router.get("/users", function(req,resp){
 
-    connection.query("SELECT * FROM users", function(error, rows, fields){
+    connection.query("SELECT * FROM users WHERE userType=3", function(error, rows, fields){
         if (!!error){
             console.log("Error in the query");
         } else {
@@ -95,10 +95,11 @@ router.post('/client_create', (req, res) => {
     const password = req.body.client_password;
     const userType = req.body.client_userType;
     const idSKILL = req.body.client_idSKILL;
+    const Email = req.body.client_Email;
 
-    const queryString = "INSERT INTO users (name, password, userType, idSKILL) VALUES (?, ?, ?, ?)";
+    const queryString = "INSERT INTO users (name, password, userType, idSKILL, Email) VALUES (?, ?, ?, ?, ?)";
 
-    connection.query(queryString, [name, password, userType, idSKILL], (err, results, fields) => {
+    connection.query(queryString, [name, password, userType, idSKILL, Email], (err, results, fields) => {
         if (err) {
             console.log('Failed to create new user' + err);
             res.sendStatus(500);
