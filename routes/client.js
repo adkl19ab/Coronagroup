@@ -10,9 +10,9 @@ const router = express.Router();
 // Definerer vores MySQL connection funktion
 
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
-    password: 'password',
+    password: 'Mercedes1',
     database: 'Projekt2020'
 });
 

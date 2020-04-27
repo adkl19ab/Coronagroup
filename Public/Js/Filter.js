@@ -43,7 +43,7 @@ fetch('/users')
     console.log(err);
 });
 
-function myFunction() {
+function filterData() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
