@@ -27,3 +27,49 @@ function ClogOff() {
         }
     }
 }
+
+
+
+class User {
+    constructor(name, password, userType, idSKILL, email) {
+        this.name = name;
+        this.password = password;
+        this.userType = userType;
+        this.idSKILL = idSKILL;
+        this.email = email;
+    }
+
+    addToTable() {
+        const queryString = "INSERT INTO users (name, password, userType, idSKILL, Email) VALUES (?, ?, ?, ?, ?)";
+
+        connection.query(queryString, [this.name, this.password, this.userType, this.idSKILL, this.email], (err, results, fields) => {
+                if (err) {
+                    console.log('Failed to create new user' + err);
+                    //res.sendStatus(500);
+                }
+                console.log('Inserted a new user with id: ', results.insertId);
+                //res.end()
+            }
+        )
+    }
+    displayUsername(){
+        return console.log(this.name);
+    }
+}
+
+router.post('/client_create', (req, res) => {
+    console.log('Trying to create a new user');
+
+    let dummy = new User(
+        req.body.client_name,
+        req.body.client_password,
+        req.body.client_userType,
+        req.body.client_idSKILL,
+        req.body.client_Email
+    )
+
+    console.log(dummy);
+    dummy.displayUsername();
+    dummy.addToTable();
+    res.end()
+})

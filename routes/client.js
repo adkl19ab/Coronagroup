@@ -18,6 +18,35 @@ const connection = mysql.createConnection({
     database: 'Projekt2020'
 });
 
+
+class User {
+    constructor(name, lastname, password, userType, idSKILL, email) {
+        this.name = name;
+        this.lastname = lastname;
+        this.password = password;
+        this.userType = userType;
+        this.idSKILL = idSKILL;
+        this.email = email;
+    }
+
+    addToTable() {
+        const queryString = "INSERT INTO users (name, lastname, password, userType, idSKILL, Email) VALUES (?, ?, ?, ?, ?, ?)";
+
+        connection.query(queryString, [this.name, this.lastname, this.password, this.userType, this.idSKILL, this.email], (err, results, fields) => {
+                if (err) {
+                    console.log('Failed to create new user' + err);
+                    //res.sendStatus(500);
+                }
+                console.log('Inserted a new user with id: ', results.insertId);
+                //res.end()
+            }
+        )
+    }
+    displayUsername(){
+        return console.log(this.name);
+    }
+}
+
 router.get('/messages', (req, res) => {
     console.log('Show me some messages')
     res.end()
@@ -92,27 +121,19 @@ router.get("/usertype", function(req,resp){
 router.post('/client_create', (req, res) => {
     console.log('Trying to create a new user');
 
-    console.log('Fornavn: ' + req.body.client_name);
-    const name = req.body.client_name;
-    const lastname = req.body.client_lastname;
-    const password = req.body.client_password;
-    const userType = req.body.client_userType;
-    const idSKILL = req.body.client_idSKILL;
-    const Email = req.body.client_Email;
+    let dummy = new User(
+        req.body.client_name,
+        req.body.client_lastname,
+        req.body.client_password,
+        req.body.client_userType,
+        req.body.client_idSKILL,
+        req.body.client_Email
+    )
 
-    const queryString = "INSERT INTO users (name, lastname, password, userType, idSKILL, Email) VALUES (?, ?, ?, ?, ?, ?)";
-
-    connection.query(queryString, [name, lastname, password, userType, idSKILL, Email], (err, results, fields) => {
-        if (err) {
-            console.log('Failed to create new user' + err);
-            res.sendStatus(500);
-
-        }
-
-        console.log('Inserted a new user with id: ', results.insertId);
-        res.end();
-    })
-    res.end();
+    console.log(dummy);
+    dummy.displayUsername();
+    dummy.addToTable();
+    res.end()
 })
 
 router.get("/users/1", function(req,resp){

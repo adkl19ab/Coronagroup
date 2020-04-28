@@ -17,6 +17,14 @@ app.use(session({
     saveUninitialized: true
 }));
 
+const pool = mysql.createPool({
+    connectionLimit: 10,
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'projekt2020'
+});
+
 
 const connection = mysql.createConnection({
     host: '127.0.0.1',
