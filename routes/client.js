@@ -7,12 +7,14 @@ const mysql = require('mysql');
 const path = require('path');
 const router = express.Router();
 
+const auth = require('../Public/Js/auth');
+
 // Definerer vores MySQL connection funktion
 
 const connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'Mercedes1',
+    password: 'password',
     database: 'Projekt2020'
 });
 
@@ -124,6 +126,12 @@ router.get("/users/1", function(req,resp){
         }
     })
 });
+
+
+router.get('/delete', auth, function(request, response) {
+    response.sendFile(path.resolve('public', 'delete.html'));
+});
+
 
 router.post('/delete2', (req, res) => {
     console.log('Trying to delete a user');
