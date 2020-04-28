@@ -10,9 +10,9 @@ const router = express.Router();
 // Definerer vores MySQL connection funktion
 
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
-    password: 'password',
+    password: 'Mercedes1',
     database: 'Projekt2020'
 });
 
@@ -155,7 +155,7 @@ router.post('/auth', function(request, response) {
             if (results.length > 0) {
                 request.session.loggedin = true;
                 request.session.username = username;
-                response.redirect('/home');
+                response.redirect('/consultants');
             } else {
                 response.send('Incorrect Username and/or Password!');
             }
