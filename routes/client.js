@@ -94,14 +94,15 @@ router.post('/client_create', (req, res) => {
 
     console.log('Fornavn: ' + req.body.client_name);
     const name = req.body.client_name;
+    const lastname = req.body.client_lastname;
     const password = req.body.client_password;
     const userType = req.body.client_userType;
     const idSKILL = req.body.client_idSKILL;
     const Email = req.body.client_Email;
 
-    const queryString = "INSERT INTO users (name, password, userType, idSKILL, Email) VALUES (?, ?, ?, ?, ?)";
+    const queryString = "INSERT INTO users (name, lastname, password, userType, idSKILL, Email) VALUES (?, ?, ?, ?, ?, ?)";
 
-    connection.query(queryString, [name, password, userType, idSKILL, Email], (err, results, fields) => {
+    connection.query(queryString, [name, lastname, password, userType, idSKILL, Email], (err, results, fields) => {
         if (err) {
             console.log('Failed to create new user' + err);
             res.sendStatus(500);
@@ -174,6 +175,67 @@ router.post('/auth', function(request, response) {
         response.end();
     }
 });
+
+router.post('/booking_create', (req, res) => {
+    console.log('Trying to create a new bookingg');
+
+console.log('name: ' + req.body.consultant_name);
+const Consultantname = req.body.consultant_name;
+const Consultantemail = req.body.consultant_email;
+const Time = req.body.consultant_time;
+const Date = req.body.consultant_date;
+const Cname = req.body.client_Cname;
+const Cphone = req.body.client_Cphone;
+const Cemail = req.body.client_Cemail;
+
+const QueryBooking = "INSERT INTO Booking (ConsultantName, ConsultantEmail, Time, Date, Name, Phone, Email) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+connection.query(QueryBooking, [Consultantname, Consultantemail, Time, Date, Cname, Cphone, Cemail], (err, results, fields) => {
+    if (err) {
+        console.log('Failed to create a new booking' + err);
+        res.sendStatus(500);
+
+    }
+
+    console.log('Inserted a new booking with id: ', results.insertId);
+res.end();
+})
+res.end();
+})
+
+router.get("/Bookings", function(req,resp){
+
+    connection.query("SELECT * FROM Booking", function(error, rows, fields){
+        if (!!error){
+            console.log("Error in the query");
+        } else {
+            console.log("SUCCES!\n");
+            //console.log(rows[0].name);
+            resp.json(rows);
+        }
+    })
+});
+
+router.post('/skill_create', (req, res) => {
+    console.log('Trying to create a new skill');
+
+console.log('name: ' + req.body.skill_name);
+const skillName = req.body.skill_name;
+
+const QuerySkill = "INSERT INTO skills (skill) VALUES (?)";
+
+connection.query(QuerySkill, [skillName], (err, results, fields) => {
+    if (err) {
+        console.log('Failed to create a new booking' + err);
+        res.sendStatus(500);
+
+    }
+
+    console.log('Inserted a new booking with id: ', results.insertId);
+res.end();
+})
+res.end();
+})
 
 /*
 function getConnection() {
