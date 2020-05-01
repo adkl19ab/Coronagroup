@@ -12,9 +12,9 @@ const auth = require('../Public/Js/auth');
 // Definerer vores MySQL connection funktion
 
 const connection = mysql.createConnection({
-    host: '127.0.0.1',
+    host: 'localhost',
     user: 'root',
-    password: 'Mercedes1',
+    password: 'password',
     database: 'Projekt2020'
 });
 
