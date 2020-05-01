@@ -16,7 +16,6 @@
         <li><a href="http://localhost:3500/consultants">Konsulenter</a></li>
         <li><a href="http://localhost:3500/Booking.html">Booking</a></li>
         <li><a href="http://localhost:3500/delete.html">Admin</a></li>
-        <li><a href="http://localhost:3500/changeskill.html">Ændre kompetence</a></li>
     </ul>
 </header>
 <body>
@@ -46,5 +45,18 @@
     <br>
     <br>
     <br>
+    <br>
+    <b>Udfyld formularen nedenfor for at oprette en konsulent:</b>
+    <br>
+    <br>
+    <form action="/consultant_create" method="POST">
+        <input placeholder = "Fornavn" name="client_name"/>
+        <input placeholder = "Efternavn" name="client_lastname"/>
+        <input placeholder= "Kodeord" name="client_password"/>
+        <input type=number placeholder= "Type af bruger" name="client_userType"/>
+        <input type=number placeholder= "Kompetence" name="client_idSKILL"/>
+        <input placeholder= "Email" name="client_Email"/>
+        <button>Opret bruger</button>
+    </form>
 </body>
 </html>
