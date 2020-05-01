@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Slet brugere</title>
+    <title>Ændre kompetence</title>
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../../CSS/Filter.css">
@@ -28,23 +28,12 @@
     <br>
     <br>
     <br>
-    <form action="/skill_create" method="POST">
-        <input placeholder = "Navn på kompetence" name="skill_name"/>
-        <button>Opret kompetence</button>
+    <form action="/skill_change" method="POST">
+        <input placeholder = "ID på nykompetence" name="newSkill_name"/>
+        <input placeholder = "Din Email" name="myEmail"/>
+        <button>Ændre kompetence</button>
     </form>
 </div>
-<br>
-<br>
-<br>
-<br>
-<b>Skriv Emailen på den bruger du ønsker at slette nedenfor:</b>
-<br>
-<br>
-<form action="/delete2" method="POST">
-    <input placeholder = "Email" name="customer_Email"/>
-    <button>Slet</button>
-    <br>
-    <br>
-    <br>
+
 </body>
 </html>

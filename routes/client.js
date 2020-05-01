@@ -14,7 +14,7 @@ const auth = require('../Public/Js/auth');
 const connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'password',
+    password: 'Mercedes1',
     database: 'Projekt2020'
 });
 
@@ -24,15 +24,13 @@ class User {
         this.name = name;
         this.lastname = lastname;
         this.password = password;
-        this.userType = userType;
-        this.idSKILL = idSKILL;
         this.email = email;
     }
 
     addToTable() {
-        const queryString = "INSERT INTO users (name, lastname, password, userType, idSKILL, Email) VALUES (?, ?, ?, ?, ?, ?)";
+        const queryString = "INSERT INTO users (name, lastname, password, Email) VALUES (?, ?, ?, ?)";
 
-        connection.query(queryString, [this.name, this.lastname, this.password, this.userType, this.idSKILL, this.email], (err, results, fields) => {
+        connection.query(queryString, [this.name, this.lastname, this.password, this.email], (err, results, fields) => {
                 if (err) {
                     console.log('Failed to create new user' + err);
                     //res.sendStatus(500);
@@ -246,6 +244,28 @@ const skillName = req.body.skill_name;
 const QuerySkill = "INSERT INTO skills (skill) VALUES (?)";
 
 connection.query(QuerySkill, [skillName], (err, results, fields) => {
+    if (err) {
+        console.log('Failed to create a new booking' + err);
+        res.sendStatus(500);
+
+    }
+
+    console.log('Inserted a new booking with id: ', results.insertId);
+res.end();
+})
+res.end();
+})
+
+router.post('/skill_change', (req, res) => {
+    console.log('Trying to change a skill skill');
+
+console.log('name: ' + req.body.newSkill_name);
+const newSkillName = req.body.newSkill_name;
+const myEmail = req.body.myEmail;
+
+const QueryNewSkill = "UPDATE users SET idSKILL= ? WHERE Email= ?";
+
+connection.query(QueryNewSkill, [newSkillName, myEmail], (err, results, fields) => {
     if (err) {
         console.log('Failed to create a new booking' + err);
         res.sendStatus(500);
