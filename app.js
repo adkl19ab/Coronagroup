@@ -5,11 +5,11 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const router = require('./routes/client');
+const router = require('./controller/client.js')
 
 //Vi loader her vores andre JS filer
 
-app.use(express.static('Public'));
+app.use(express.static('View'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
     secret: 'secret',

@@ -42,6 +42,7 @@
 <form action="/delete2" method="POST">
     <input placeholder = "Email" name="customer_Email"/>
     <button>Slet</button>
+</form>
     <br>
     <br>
     <br>
@@ -49,14 +50,15 @@
     <b>Udfyld formularen nedenfor for at oprette en konsulent:</b>
     <br>
     <br>
+    <div>
     <form action="/consultant_create" method="POST">
-        <input placeholder = "Fornavn" name="client_name"/>
-        <input placeholder = "Efternavn" name="client_lastname"/>
-        <input placeholder= "Kodeord" name="client_password"/>
-        <input type=number placeholder= "Type af bruger" name="client_userType"/>
-        <input type=number placeholder= "Kompetence" name="client_idSKILL"/>
-        <input placeholder= "Email" name="client_Email"/>
+        <input placeholder = "Fornavn" name="consultantName"/>
+        <input placeholder = "Efternavn" name="consultantLastname"/>
+        <input placeholder= "Kodeord" name="consultantPassword"/>
+        <input type=number placeholder= "Kompetence" name="consultantidSkill"/>
+        <input placeholder= "Email" name="consultantEmail"/>
         <button>Opret bruger</button>
     </form>
+    </div>
 </body>
 </html>
