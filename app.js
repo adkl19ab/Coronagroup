@@ -7,6 +7,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const router = require('./controller/client.js')
 
+
 //Vi loader her vores andre JS filer
 
 app.use(express.static('View'));

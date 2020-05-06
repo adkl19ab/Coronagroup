@@ -6,10 +6,6 @@ const mysql = require('mysql');
 const path = require('path');
 const router = require('./client.js')
 
-
-const classImport = require('../Model/class.js');
-const User = classImport.User
-
 const auth = require('../View/Js/auth');
 
 // Definerer vores MySQL connection funktion

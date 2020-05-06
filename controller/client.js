@@ -1,20 +1,18 @@
 
 // Denne fil indeholder alle routerne for vores klienter på siden.
 
+
+//Importerer plugins
 const express = require('express');
-const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const path = require('path');
 const router = express.Router();
-const auth = require('../View/Js/auth');
 
 //Importerer vores klasser
 const classImport = require('../Model/class.js')
 const User = classImport.User;
 const Admin = classImport.Admin;
 const Booking = classImport.Booking;
-
-
 
 
 // Definerer vores MySQL connection funktion
