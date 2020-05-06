@@ -101,7 +101,7 @@ router.get("/usertype", function (req, resp) {
         }
     })
 });
-
+// Her opretter vi en ny bruger ved hjælp af router.post
 router.post('/client_create', (req, res) => {
     console.log('Trying to create a new user');
 
@@ -119,7 +119,7 @@ router.post('/client_create', (req, res) => {
     dummy.addUser();
     res.end()
 })
-
+// her henter vi brugerne ned til siden
 router.get("/users/1", function (req, resp) {
 
     connection.query("SELECT * FROM users", function (error, rows, fields) {

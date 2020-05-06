@@ -1,5 +1,5 @@
 
-
+// her importerer vi alle vores plugins
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
@@ -9,7 +9,7 @@ const router = require('./client.js')
 const auth = require('../View/Js/auth');
 
 // Definerer vores MySQL connection funktion
-
+// opretter connection til vores mySQL
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -17,7 +17,7 @@ const connection = mysql.createConnection({
     database: 'Projekt2020'
 });
 
-
+// en router til at oprette konsulenter
 router.post('/consultant_create', (req, res) => {
     console.log('Trying to create a new user');
 
