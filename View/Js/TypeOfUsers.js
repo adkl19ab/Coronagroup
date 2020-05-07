@@ -17,7 +17,7 @@ function appendData(data) {
     var html = "";
     for (var i = 0; i < data.length; i++) {
         var div = document.createElement("div");
-        html += "<tr><td>" + data[i].userType + "</td><td>" + data[i].title + "</td></tr>";
+        html += "<tr><td>" + data[i].idUserType + "</td><td>" + data[i].userType + "</td></tr>";
         mainContainer.appendChild(div);
     }
 

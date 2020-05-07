@@ -5,7 +5,12 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const router = require('./controller/client.js')
+const router = require('./controller/client.js');
+const consultantRouter = require('./controller/consultant.js');
+//const cookieParser = require('cookie-parser');
+//const jwt = require('jsonwebtoken');
+//const secret = 'verysecret';
+
 
 
 //Vi loader her vores andre JS filer
@@ -41,5 +46,25 @@ connection.connect(function(error){
         console.log("connected")
     }
 });
+/*
+router.use((req, res, next) => {
+    if (req.cookies && req.cookies['jwt-token']) {
+        const decoded = jwt.verify(req.cookies['jwt-token'],
+            secret);
+
+        connection.query('SELECT * FROM users WHERE idUSERS = $1',
+            [decoded.idUSERS]).then(result => {
+            req.user = result.rows[0];
+            next();
+            });
+        } else {
+        next();
+    }
+});
+
+ */
+
 app.use(router);
+app.use(consultantRouter);
+//app.use(cookieParser());
 app.listen(3500, ()=> {});

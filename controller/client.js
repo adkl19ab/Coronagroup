@@ -7,6 +7,8 @@ const express = require('express');
 const mysql = require('mysql');
 const path = require('path');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
+const secret = 'verysecret';
 
 //Importerer vores klasser
 const classImport = require('../Model/class.js')
@@ -47,7 +49,7 @@ router.get('/userskills', function (request, response) {
     response.sendFile(path.resolve('View', 'HTML', 'UserSkills.html'));
 });
 router.get('/booking', function (request, response) {
-    response.sendFile(path.resolve('View', 'HTML', 'Logget_ind', 'booking.html'));
+    response.sendFile(path.resolve('View', 'booking.html'));
 });
 router.get('/admin', function (req, res) {
     res.sendFile(path.resolve('View', 'delete.html'));
@@ -91,7 +93,7 @@ router.get("/skills", function (req, resp) {
 
 router.get("/usertype", function (req, resp) {
 
-    connection.query("SELECT * FROM usertype", function (error, rows, fields) {
+    connection.query("SELECT * FROM types", function (error, rows, fields) {
         if (!!error) {
             console.log("Error in the query");
         } else {
@@ -109,9 +111,8 @@ router.post('/client_create', (req, res) => {
         req.body.client_name,
         req.body.client_lastname,
         req.body.client_password,
-        req.body.client_userType,
-        req.body.client_idSKILL,
-        req.body.client_Email
+        req.body.client_Email,
+        2
     )
 
     console.log(dummy);
@@ -155,15 +156,22 @@ router.post('/delete2', (req, res) => {
 
 
 router.post('/auth', function (request, response) {
-    var username = request.body.username;
+    var Email = request.body.Email;
     var password = request.body.password;
 
-    if (username && password) {
-        connection.query('SELECT * FROM users WHERE name = ? AND password = ?', [username, password], function (error, results, fields) {
+    if (Email && password) {
+        connection.query('SELECT * FROM users WHERE Email = ? AND password = ?', [Email, password], function (error, results, fields) {
             if (results.length > 0) {
+                console.log('succesfully logged in');
                 request.session.loggedin = true;
-                request.session.username = username;
+                request.session.Email = Email;
+/*
+
+                const token = jwt.sign({ idUSERS: users.idUSERS }, secret);
+                response.cookie('jwt-token', token);
                 response.redirect('/consultants');
+
+ */
             } else {
                 response.send('Incorrect Username and/or Password!');
             }
@@ -174,12 +182,17 @@ router.post('/auth', function (request, response) {
         response.end();
     }
 });
+/*
+router.get('/me', (req, res) => {
+    res.json(req.user);
+});
+
+ */
 
 router.post('/booking_create', (req, res) => {
     console.log('Trying to create a new booking');
 
     let dummyB = new Booking(
-
         req.body.consultant_name,
         req.body.consultant_email,
         req.body.consultant_time,

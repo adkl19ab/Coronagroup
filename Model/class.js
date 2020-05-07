@@ -20,7 +20,7 @@ class User {
     addUser() {
         const queryString = "INSERT INTO users (name, lastname, password, Email, userType) VALUES (?, ?, ?, ?, ?)";
 
-        connection.query(queryString, [this.name, this.lastname, this.password, this.email, this.userType], (err, results, fields) => {
+        connection.query(queryString, [this.name, this.lastname, this.password, this.email, 2], (err, results, fields) => {
             if (err) {
                 console.log('Failed to create new user' + err);
                 res.sendStatus(500);
@@ -35,14 +35,14 @@ class User {
 }
 
 class Consultant extends User{
-    constructor(name, lastname, password, email, idSKILL) {
-        super(name, lastname, password, email);
+    constructor(name, lastname, password, email, userType,idSKILL) {
+        super(name, lastname, password, email, userType, idSKILL);
         this.idSKILL = idSKILL;
     }
     addConsultant(){
-        const queryString = "INSERT INTO consultants (name, lastname, password, Email, idSKILL) VALUES (?, ?, ?, ?, ?)";
+        const queryString = "INSERT INTO users (name, lastname, password, Email, userType, idSKILL) VALUES (?, ?, ?, ?, ?, ?)";
 
-        connection.query(queryString, [this.name, this.lastname, this.password, this.email, this.idSKILL], (err, results, fields) => {
+        connection.query(queryString, [this.name, this.lastname, this.password, this.email, 3, this.idSKILL], (err, results, fields) => {
             if (err) {
                 console.log('Failed to create new user' + err);
                 res.sendStatus(500);
@@ -81,7 +81,6 @@ class Booking {
             }
             console.log('Inserted a new booking with id: ', results.insertId);
         })
-        res.end()
     }
 }
 

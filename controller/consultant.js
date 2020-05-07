@@ -4,7 +4,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const path = require('path');
-const router = require('./client.js')
+const consultantRouter = express.Router();
+
+const classImport = require('../Model/class.js')
+const Consultant = classImport.Consultant;
 
 const auth = require('../View/Js/auth');
 
@@ -18,7 +21,7 @@ const connection = mysql.createConnection({
 });
 
 
-router.post('/consultant_create', (req, res) => {
+consultantRouter.post('/consultant_create', (req, res) => {
     console.log('Trying to create a new user');
 
     let dummyC = new Consultant(
@@ -26,13 +29,16 @@ router.post('/consultant_create', (req, res) => {
         req.body.consultantLastname,
         req.body.consultantPassword,
         req.body.consultantEmail,
-        req.body.consultantidSkill,
+        3,
+        req.body.consultantidSkill
     )
 
     console.log(dummyC);
     dummyC.addConsultant();
     res.end()
 })
+
+module.exports = consultantRouter;
 
 
 
