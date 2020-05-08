@@ -134,7 +134,7 @@ router.get("/users/1", function (req, resp) {
     })
 });
 
-router.post('/delete2', (req, res) => {
+router.delete('/delete2', (req, res) => {
     console.log('Trying to delete a user');
 
     console.log('Fornavn: ' + req.body.customer_Email);
@@ -163,15 +163,12 @@ router.post('/auth', function (request, response) {
         connection.query('SELECT * FROM users WHERE Email = ? AND password = ?', [Email, password], function (error, results, fields) {
             if (results.length > 0) {
                 console.log('succesfully logged in');
-                request.session.loggedin = true;
-                request.session.Email = Email;
-/*
 
-                const token = jwt.sign({ idUSERS: users.idUSERS }, secret);
+                const token = jwt.sign({ idUSERS: User.idUSERS }, secret);
                 response.cookie('jwt-token', token);
                 response.redirect('/consultants');
 
- */
+            debugger;
             } else {
                 response.send('Incorrect Username and/or Password!');
             }
@@ -182,12 +179,11 @@ router.post('/auth', function (request, response) {
         response.end();
     }
 });
-/*
+
 router.get('/me', (req, res) => {
     res.json(req.user);
 });
 
- */
 
 router.post('/booking_create', (req, res) => {
     console.log('Trying to create a new booking');
