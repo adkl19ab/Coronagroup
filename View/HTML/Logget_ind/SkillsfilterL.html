@@ -23,17 +23,19 @@
     <ul>
         <li><a href="/HTML/Ikke_logget_ind/Startside.html">Hjem</a></li>
         <li><a href="http://localhost:3500/consultants">Konsulenter</a></li>
-        <li><a href="http://localhost:3500/Booking.html">Booking</a></li>
-        <li><a href="http://localhost:3500/delete.html">Admin</a></li>
-        <li><a href="http://localhost:3500/changeskill.html">Ændre kompetence</a></li>
+        <li><a href="http://localhost:3500/Booking">Booking</a></li>
+        <li><a href="http://localhost:3500/admin">Admin</a></li>
+        <li><a href="http://localhost:3500/userskills">Ændre kompetence</a></li>
     </ul>
 </header>
 <br>
 <br>
+<!-- Nedenfor indsætter vi vores filterfunktion fra Filter.js -->
 <b>Søg efter kompetence ID:</b>
 <input type="text" id="myInput" onkeyup="filterData()" placeholder="Skriv ID" title="Skriv ID">
 <br>
 <br>
+<!-- Nedenfor kalder vi vores id, defineret i Filter.js, og sætter vores overskrifter på kolonnerne i vores table. Nederst kalder vi vores div på myData. -->
 <body  id="body">
 <table id="myTable">
         <thead>
@@ -58,32 +60,6 @@
 <br>
 <br>
 
-<!-- Control buttons
-<div id="myBtnContainer">
-    <button class="btn active" onclick="filterSelection('all')">Vis Alle</button>
-    <button class="btn" onclick="filterSelection('Front-end')"> Front-end</button>
-    <button class="btn" onclick="filterSelection('Back-end')"> Back-end</button>
-    <button class="btn" onclick="filterSelection('IT-Rådgivning')"> IT-Rådgivning</button>
-    <button class="btn" onclick="filterSelection('IT-Support')"> IT-Support</button>
-</div>
--->
-<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories)
-<div class="container">
-    <div class="filterDiv Front-end"><img src="../../images/personicon.png" alt=" " id="img"><p>Mohammed Ali specialist i Front-end development herunder .......</p></div>
-    <div class="filterDiv IT-Support"><img src="../../images/personicon.png" alt=" " id="img"><p>Isak Hansen specialist i IT-Support development herunder .......</p></div>
-    <div class="filterDiv Front-end"><img src="../../images/personicon.png" alt=" " id="img"><p>Mikkel Ditlev specialist i Front-end development herunder .......</p></div>
-    <div class="filterDiv Back-end"><img src="../../images/ppersonicon.png" alt=" " id="img"><p>Helle Nikolajsen specialist i Back-end development herunder .......</p></div>
-    <div class="filterDiv IT-Support"><img src="../../images/personicon.png" alt=" " id="img"><p>Patrick Borkov specialist i IT-Support development herunder .......</p></div>
-    <div class="filterDiv Front-end"><img src="../../images/ppersonicon.png" alt=" " id="img"><p>Lene Ipsen specialist i Front-end development herunder .......</p></div>
-    <div class="filterDiv Back-end"><img src="../../images/ppersonicon.png" alt=" " id="img"><p>Bettina Gorborger specialist i Back-end development herunder .......</p></div>
-    <div class="filterDiv IT-Rådgivning"><img src="../../images/personicon.png" alt=" " id="img"><p>Fahad Nikokajsen specialist i IT-Rådgivning development herunder .......</p></div>
-    <div class="filterDiv Back-end"><img src="../../images/personicon.png" alt=" " id="img"><p>Oliver Borkov specialist i Back-end development herunder .......</p></div>
-    <div class="filterDiv IT-Rådgivning"><img src="../../images/personicon.png" alt=" " id="img"><p>Ip Christiansen specialist i IT-Rådgivning development herunder .......</p></div>
-
-</div>
--->
-
-<script src="../../../Kirkegården/Logaf.js"></script>
 <script src="../../Js/Filter.js"></script>
 
 </body>

@@ -19,12 +19,13 @@
     <ul>
         <li><a href="/HTML/Ikke_logget_ind/Startside.html">Hjem</a></li>
         <li><a href="http://localhost:3500/consultants">Konsulenter</a></li>
-        <li><a href="http://localhost:3500/Booking.html">Booking</a></li>
-        <li><a href="http://localhost:3500/delete.html">Admin</a></li>
-        <li><a href="http://localhost:3500/changeskill.html">Ændre kompetence</a></li>
+        <li><a href="http://localhost:3500/Booking">Booking</a></li>
+        <li><a href="http://localhost:3500/admin">Admin</a></li>
+        <li><a href="http://localhost:3500/userskills">Ændre kompetence</a></li>
     </ul>
 </header>
 <body>
+<!-- Nedenfor kalder vi vores http-request /bookin_create, som ved udfyldelse opretter en aftale i vores booking-system-->
 <div>
     <br>
     <font size="6">Opret en aftale med en af vores konsulenter ved at udfylde nedenstående formular</font>
@@ -32,10 +33,10 @@
     <br>
     <br>
     <form action="/booking_create" method="POST">
-        <input placeholder = "Navn på konsulent" name="consultant_name"/>
-        <input placeholder= "Email på konsulent" name="consultant_email"/>
         <input placeholder= "Klokkeslæt for aftale" name="consultant_time"/>
         <input placeholder= "Dato for aftale" name="consultant_date"/>
+        <input placeholder = "Navn på konsulent" name="consultant_name"/>
+        <input placeholder= "Email på konsulent" name="consultant_email"/>
         <input placeholder= "Dit navn" name="client_Cname"/>
         <input placeholder= "Dit telefonnummer" name="client_Cphone"/>
         <input placeholder= "Din Email" name="client_Cemail"/>
@@ -45,11 +46,13 @@
 <br>
 <br>
 <br>
+<!-- Nedenfor indsætter vi vores filterfunktion fra Booking.js -->
 <b>Søg efter aftale på konsulenternes email:</b>
 <input type="text" id="myInput" onkeyup="filterBookings()" placeholder="Skriv Email" title="Skriv Email">
 <br>
 <br>
 </body>
+<!-- Nedenfor kalder vi vores id, defineret i Booking.js, og sætter vores overskrifter på kolonnerne i vores table. Nederst kalder vi vores div på myData. -->
 <body id="body">
 <table id="myTable">
     <thead>

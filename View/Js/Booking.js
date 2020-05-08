@@ -1,6 +1,8 @@
+//Vi definerer vores table som variable. Vi kalder disse variable i Booking.html. Nedenstående er referancer til disse.
 var table = document.getElementById('myTable');
 var tbody = table.getElementsByTagName('tbody');
 
+//Vi bruger window.onload funktionen til at fetche vores users fra vores database, som vi i client.js gennem en http.request har hentet til /bookings.
 window.onload = function(){
     const form = document.getElementById('profileform');
     const name = document.getElementById('profilename');
@@ -10,18 +12,24 @@ window.onload = function(){
     })
 };
 
+//Nedenstående funktion bruger vi til at tage vores input og omdanne det fra JSON array til et HTML table.
+
 function appendData3(data){
+    //Vi kalder herunder vores ID, som vi har defineret i en Div i vores HTML.
     var mainContainer = document.getElementById("myData");
+    //Vi opretter en tom string, og definerer den som HTML.
     var html = "";
+    //Vi opstiller et for-loop, som looper gennem vores JSON data.
     for (var i = 0; i < data.length; i++){
         var div = document.createElement("div");
+        //Vi definerer vores kolonner i HTML-tabellen, ud fra vores rows i databasen.
         html += "<tr><td>" + data[i].ConsultantName + "</td><td>"+ data[i].ConsultantEmail + "</td><td>"+ data[i].Time + "</td><td>"+ data[i].Date + "</td><td>"+ data[i].Name + "</td><td>"+ data[i].Phone + "</td><td>"+ data[i].Email + "</td></tr>";
         mainContainer.appendChild(div);
     }
-
     for (i=0; i < mainContainer.length; i++ ){
         html += data[i].appendData();
     }
+    //Vi bruger innerHTML, til at definere vores nu udfyldte string med vores data, til vores tbody. Denne variable hænger sammen med vores variabel øverst.
     tbody[0].innerHTML = html;
 }
 
@@ -40,13 +48,17 @@ fetch('/Bookings')
     .catch(function(err){
         console.log(err);})
 
+//Nedenstående funktion er vores filterfunktion. Vi går her ind og definerer vores input i tabellen, derefter looper vi igennem vores td-rows, i vores tbody.
+
 function filterBookings() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
+    //I koden nedenfor, looper vi igennem alle felter i vores tabel, og fjerner alle de, som der ikke bliver søgt på.
     for (i = 0; i < tr.length; i++) {
+        //Nedenfor definerer vi vores kolonne, som vi skal filtrere på.
         td = tr[i].getElementsByTagName("td")[1];
         if (td) {
             txtValue = td.textContent || td.innerText;

@@ -1,8 +1,8 @@
+//Vi definerer vores table som variable. Vi kalder disse variable i Booking.html. Nedenstående er referancer til disse.
 var table = document.getElementById('myTable');
 var tbody = table.getElementsByTagName('tbody');
 
-
-
+//Vi bruger window.onload funktionen til at fetche vores users fra vores database, som vi i client.js gennem en http.request har hentet til /bookings.
 window.onload = function(){
     const form = document.getElementById('profileform');
     const name = document.getElementById('profilename');
@@ -12,11 +12,17 @@ window.onload = function(){
 })
 };
 
+//Nedenstående funktion bruger vi til at tage vores input og omdanne det fra JSON array til et HTML table.
+
 function appendData(data) {
+    //Vi kalder herunder vores ID, som vi har defineret i en Div i vores HTML.
     var mainContainer = document.getElementById("myData");
+    //Vi opretter en tom string, og definerer den som HTML.
     var html = "";
+    //Vi opstiller et for-loop, som looper gennem vores JSON data.
     for (var i = 0; i < data.length; i++) {
         var div = document.createElement("div");
+        //Vi definerer vores kolonner i HTML-tabellen, ud fra vores rows i databasen.
         html += "<tr><td>" + data[i].idUserType + "</td><td>" + data[i].userType + "</td></tr>";
         mainContainer.appendChild(div);
     }
@@ -24,9 +30,7 @@ function appendData(data) {
     for (i = 0; i < mainContainer.length; i++) {
         html += data[i].appendData();
     }
-
-// The table body will contain the string "html" which contains a string similar to this: ""<tr><td>"+ this.name + "</td><td>" + this.location + "</td><td>"...."
-// the table can read the string properly and inserts everything correctly
+    //Vi bruger innerHTML, til at definere vores nu udfyldte string med vores data, til vores tbody. Denne variable hænger sammen med vores variabel øverst.
     tbody[0].innerHTML = html;
 }
 
