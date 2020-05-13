@@ -79,7 +79,7 @@ router.get('/consultants', function (request, response) {
     response.sendFile(path.resolve('View', 'HTML', 'Logget_ind', 'SkillsfilterL.html'));
 });
 router.get('/userskills', function (request, response) {
-    response.sendFile(path.resolve('View', 'HTML', 'UserSkills.html'));
+    response.sendFile(path.resolve('View', 'changeSkill.html'));
 });
 router.get('/booking', function (request, response) {
     response.sendFile(path.resolve('View', 'booking.html'));
@@ -128,7 +128,7 @@ router.get("/skills", function (req, resp) {
 
 router.get("/usertype", function (req, resp) {
 
-    connection.query("SELECT * FROM types", function (error, rows, fields) {
+    connection.query("SELECT * FROM usertype", function (error, rows, fields) {
         if (!!error) {
             console.log("Error in the query");
         } else {
@@ -175,7 +175,7 @@ router.get("/users/1", function (req, resp) {
 
 
 //Dette endpoint bruges til at slette
-router.delete('/delete2', (req, res) => {
+router.post('/delete2', (req, res) => {
     console.log('Trying to delete a user');
 
     console.log('Fornavn: ' + req.body.customer_Email);
@@ -240,7 +240,8 @@ router.post('/booking_create', (req, res) => {
     let dummyB = new Booking(
         req.body.consultant_name,
         req.body.consultant_email,
-        req.body.consultant_time,
+        req.body.consultant_starttime,
+        req.body.consultant_endtime,
         req.body.consultant_date,
         req.body.client_Cname,
         req.body.client_Cphone,
@@ -309,6 +310,33 @@ router.post('/skill_change', (req, res) => {
         res.end();
     })
     res.end();
+})
+
+//Denne funktion sletter bookinger. Se HTML-filene delete.html, for at finde inputtet.
+//ved hjælp af SQL-syntaksen WHERE, skal nedenstående udfyldes og bliver derefter slettet.
+//Denne funktion ligner meget de øvrige SQL-funktioner i dens opbygning.
+
+router.post('/deletebooking', (req, res) => {
+    console.log('Trying to delete a booking');
+
+console.log('Fornavn: ' + req.body.bookingClient_Email);
+const deleteBookingEmail = req.body.bookingClient_Email;
+const deleteBookingName = req.body.bookingClient_Name;
+const deleteBookingStartTime = req.body.bookingClient_StartTime;
+
+
+const Query = "DELETE FROM Booking WHERE client_email = ? AND client_name = ? AND booking_starttime = ?"
+
+connection.query(Query, [deleteBookingEmail, deleteBookingName, deleteBookingStartTime], (err, results, fields) => {
+    if (err) {
+        console.log('Failed to delete a booking' + err);
+        res.sendStatus(500);
+
+    }
+    console.log('Deleted a booking with id: ', results.insertId);
+res.end();
+})
+res.end();
 })
 
 module.exports = router;

@@ -64,11 +64,12 @@ class Admin extends User{
 
 //Her definerer vi vores booking-class.
 class Booking {
-    constructor(consultantName, consultantEmail, dateOfAppointment, timeOfAppointment, clientName, clientPhone, clientEmail) {
+    constructor(consultantName, consultantEmail, starttimeOfAppointment, endtimeOfAppointment, dateOfAppointment, clientName, clientPhone, clientEmail) {
         this.consultantName = consultantName;
         this.consultantEmail = consultantEmail;
+        this.starttimeOfAppointment = starttimeOfAppointment;
+        this.endtimeOfAppointment = endtimeOfAppointment;
         this.dateOfAppointment = dateOfAppointment;
-        this.timeOfAppointment = timeOfAppointment;
         this.clientName = clientName;
         this.clientPhone = clientPhone;
         this.clientEmail = clientEmail;
@@ -76,9 +77,9 @@ class Booking {
     }
     //Samme princip som ovenstående metoder.
     addBooking() {
-        const queryString = "INSERT INTO bookings (con_name, con_email, booking_time, booking_date, client_name, client_phone, client_email) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        const queryString = "INSERT INTO Booking (con_name, con_email, booking_starttime, booking_endtime, booking_date, client_name, client_phone, client_email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        connection.query(queryString, [this.consultantName, this.consultantEmail, this.timeOfAppointment, this.dateOfAppointment, this.clientName, this.clientPhone, this.clientName, this.clientEmail], (err, results, fields) => {
+        connection.query(queryString, [this.consultantName, this.consultantEmail, this.starttimeOfAppointment, this.endtimeOfAppointment, this.dateOfAppointment, this.clientName, this.clientPhone, this.clientName, this.clientEmail], (err, results, fields) => {
             if (err) {
                 console.log('Failed to create new user' + err);
                 res.sendStatus(500);

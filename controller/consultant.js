@@ -9,14 +9,12 @@ const consultantRouter = express.Router();
 const classImport = require('../Model/class.js')
 const Consultant = classImport.Consultant;
 
-const auth = require('../View/Js/auth');
-
 // Definerer vores MySQL connection funktion
 
 const connection = mysql.createConnection({
-    host: '127.0.0.1',
+    host: 'localhost',
     user: 'root',
-    password: 'Mercedes1',
+    password: 'password',
     database: 'Projekt2020'
 });
 

@@ -23,7 +23,7 @@ function appendData3(data){
     for (var i = 0; i < data.length; i++){
         var div = document.createElement("div");
         //Vi definerer vores kolonner i HTML-tabellen, ud fra vores rows i databasen.
-        html += "<tr><td>" + data[i].ConsultantName + "</td><td>"+ data[i].ConsultantEmail + "</td><td>"+ data[i].Time + "</td><td>"+ data[i].Date + "</td><td>"+ data[i].Name + "</td><td>"+ data[i].Phone + "</td><td>"+ data[i].Email + "</td></tr>";
+        html += "<tr><td>" + data[i].con_name + "</td><td>"+ data[i].con_email + "</td><td>"+ data[i].booking_starttime + "</td><td>"+ data[i].booking_endtime + "</td><td>"+ data[i].booking_date + "</td><td>"+ data[i].client_name + "</td><td>"+ data[i].client_phone + "</td><td>"+ data[i].client_email + "</td></tr>";
         mainContainer.appendChild(div);
     }
     for (i=0; i < mainContainer.length; i++ ){

@@ -33,10 +33,11 @@
     <br>
     <br>
     <form action="/booking_create" method="POST">
-        <input placeholder= "Klokkeslæt for aftale" name="consultant_time"/>
-        <input placeholder= "Dato for aftale" name="consultant_date"/>
         <input placeholder = "Navn på konsulent" name="consultant_name"/>
         <input placeholder= "Email på konsulent" name="consultant_email"/>
+        <input type="time" id="appt" min="09:00" max="18:00" placeholder= "Starttidspunkt for aftale" name="consultant_starttime"/>
+        <input type="time" id="appt" min="09:00" max="18:00" placeholder= "sluttidspunkt for aftale" name="consultant_endtime"/>
+        <input type ="date" placeholder= "Dato for aftale" name="consultant_date"/>
         <input placeholder= "Dit navn" name="client_Cname"/>
         <input placeholder= "Dit telefonnummer" name="client_Cphone"/>
         <input placeholder= "Din Email" name="client_Cemail"/>
@@ -59,7 +60,8 @@
     <tr>
         <th><b>Navn på konsulenten</b></th>
         <th><b>Emailen på konsulenten</b></th>
-        <th><b>Klokkeslæt for aftale</b></th>
+        <th><b>Starttidspunkt for aftale</b></th>
+        <th><b>sluttidspunkt for aftale</b></th>
         <th><b>Dato for aftale</b></th>
         <th><b>Navn på kunde</b></th>
         <th><b>Telefon på kunde</b></th>
@@ -72,6 +74,19 @@
     </tfoot>
 </table>
 <div id="myData"></div>
+<br>
+<br>
+<br>
+<!-- Nedenfor kalder vi vores http-request /deletebooking, som ved udfyldelse sletter en aftale i vores booking-system-->
+<b>Skriv din egen Email, starttidspunkt og startdato for den aftale, du ønsker at slette nedenfor:</b>
+<br>
+<br>
+<form action="/deletebooking" method="POST">
+    <input placeholder = "Email" name="bookingClient_Email"/>
+    <input placeholder = "Navn" name="bookingClient_Name"/>
+    <input type="time" id="appt" min="09:00" max="18:00" placeholder = "Starttidspunkt" name="bookingClient_StartTime"/>
+    <button>Slet aftale</button>
+</form>
 </body>
 <script src="../../Js/Booking.js"></script>
 </html>
