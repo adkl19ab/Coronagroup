@@ -10,6 +10,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const secret = 'verysecret';
 
+
 //Importerer vores klasser
 const classImport = require('../Model/class.js')
 const User = classImport.User;
@@ -26,8 +27,40 @@ const connection = mysql.createConnection({
     database: 'Projekt2020'
 });
 
+
+
+// Her opretter vi en ny bruger ved hjælp af router.post
+router.post('/client_create', (req, res) => {
+    console.log('Trying to create a new user');
+
+    // Vi opretter her et nyt instans af vores user-klasse, så vi kan sikre os, at informationen i databasen stemmer overens med den i vores klasser.
+    let dummy = new User(
+        req.body.client_name,
+        req.body.client_lastname,
+        req.body.client_password,
+        req.body.client_Email,
+        2
+    )
+
+    //Til sidst kalder vi metoden som tilføjer instansen af klassen til vores table
+    console.log(dummy);
+    dummy.displayUsername();
+    dummy.addUser();
+    res.end()
+})
+
+
+
+// Vi tilføjer her en hard-coded admin bruger til systemet
+// Det er her tanken, at et bestemt antal admins bliver tilføjet til systemet når det bliver solgt.
 const admin1 = new Admin('Johan','Isak','test1234','johan@lundtoft.com');
 //admin1.addToTable();
+
+
+
+
+// Nedenfor har vi samtlige af vores routes som Client-klassen kan tilgå.
+// Vi gør her brug af Express router funktion.
 
 router.get('/messages', (req, res) => {
     console.log('Show me some messages')
@@ -55,6 +88,8 @@ router.get('/admin', function (req, res) {
     res.sendFile(path.resolve('View', 'delete.html'));
 });
 
+
+//Nedenstående er vores end-points og deres tilhørende syntaks.
 
 router.get('/home', function (request, response) {
     if (request.session.loggedin) {
@@ -98,15 +133,17 @@ router.get("/usertype", function (req, resp) {
             console.log("Error in the query");
         } else {
             console.log("SUCCES!\n");
-            //console.log(rows[0].name);
             resp.json(rows);
         }
     })
 });
+
+
 // Her opretter vi en ny bruger ved hjælp af router.post
 router.post('/client_create', (req, res) => {
     console.log('Trying to create a new user');
 
+    // Vi opretter her et nyt instans af vores user-klasse, så vi kan sikre os, at informationen i databasen stemmer overens med den i vores klasser.
     let dummy = new User(
         req.body.client_name,
         req.body.client_lastname,
@@ -120,6 +157,8 @@ router.post('/client_create', (req, res) => {
     dummy.addUser();
     res.end()
 })
+
+
 // her henter vi brugerne ned til siden
 router.get("/users/1", function (req, resp) {
 
@@ -134,12 +173,15 @@ router.get("/users/1", function (req, resp) {
     })
 });
 
+
+//Dette endpoint bruges til at slette
 router.delete('/delete2', (req, res) => {
     console.log('Trying to delete a user');
 
     console.log('Fornavn: ' + req.body.customer_Email);
     const Email = req.body.customer_Email;
 
+    //Vi søger efter konsulenter efter Email i vores users-table.
     const Query = "DELETE FROM users WHERE Email = ?"
 
     connection.query(Query, [Email], (err, results, fields) => {
@@ -154,21 +196,26 @@ router.delete('/delete2', (req, res) => {
     res.end();
 })
 
-
+//Dette post-request håndterer vores login-authentification.
 router.post('/auth', function (request, response) {
     var Email = request.body.Email;
     var password = request.body.password;
 
+    //Vi sammmenligner her vores input fra HTML med vores brugere i vores users-table, for at sikre at de stemmer overens.
     if (Email && password) {
         connection.query('SELECT * FROM users WHERE Email = ? AND password = ?', [Email, password], function (error, results, fields) {
             if (results.length > 0) {
                 console.log('succesfully logged in');
 
-                const token = jwt.sign({ idUSERS: User.idUSERS }, secret);
+
+                //Vi forsøgte her at indarbejde JWT-tokens i vores system.
+                /*
+                const token = jwt.sign({ user: User.user }, secret);
                 response.cookie('jwt-token', token);
                 response.redirect('/consultants');
 
-            debugger;
+                 */
+
             } else {
                 response.send('Incorrect Username and/or Password!');
             }
@@ -182,12 +229,14 @@ router.post('/auth', function (request, response) {
 
 router.get('/me', (req, res) => {
     res.json(req.user);
+    debugger;
 });
 
+//Dette end-point bruges til at oprette bookings i vores system
 
 router.post('/booking_create', (req, res) => {
     console.log('Trying to create a new booking');
-
+    // Vi opretter her et nyt instans af vores user-klasse, så vi kan sikre os, at informationen i databasen stemmer overens med den i vores klasser.
     let dummyB = new Booking(
         req.body.consultant_name,
         req.body.consultant_email,
@@ -196,7 +245,7 @@ router.post('/booking_create', (req, res) => {
         req.body.client_Cname,
         req.body.client_Cphone,
         req.body.client_Cemail);
-
+    //Til sidst kalder vi metoden som tilføjer instansen af klassen til vores table
     dummyB.addBooking();
     res.end();
 
@@ -215,6 +264,7 @@ router.get("/Bookings", function (req, resp) {
     })
 });
 
+//Dette endpoint opretter nye skills i vores skills table
 router.post('/skill_create', (req, res) => {
     console.log('Trying to create a new skill');
 
@@ -235,6 +285,9 @@ router.post('/skill_create', (req, res) => {
     })
     res.end();
 })
+
+//Denne funktion bruger vi til at redigere i konsulenters kompetencer.
+//Det gør vi ved at søge efter konsulentens mail, hvorefter vi kan ændre i deres skillTag.
 
 router.post('/skill_change', (req, res) => {
     console.log('Trying to change a skill skill');

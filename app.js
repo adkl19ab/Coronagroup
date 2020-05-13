@@ -52,7 +52,7 @@ router.use((req, res, next) => {
         const decoded = jwt.verify(req.cookies['jwt-token'],
             secret);
 
-        connection.query('SELECT * FROM users WHERE idUSERS = $1',
+        connection.query('SELECT * FROM users WHERE idUSERS = 1',
             [decoded.idUSERS]).then(result => {
             req.User = result.rows[0];
             next();
