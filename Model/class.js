@@ -27,6 +27,7 @@ class User {
                 res.sendStatus(500);
             }
             console.log('Inserted a new user with id: ', results.insertId);
+            res.redirect('/login);
         })
     }
 
@@ -51,6 +52,7 @@ class Consultant extends User{
                 res.sendStatus(500);
             }
             console.log('Inserted a new user with id: ', results.insertId);
+            res.redirect('/admin');
         })
     }
 }
@@ -85,6 +87,7 @@ class Booking {
                 res.sendStatus(500);
             }
             console.log('Inserted a new booking with id: ', results.insertId);
+            res.redirect('/booking');
         })
     }
 }

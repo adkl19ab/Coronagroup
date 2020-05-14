@@ -25,9 +25,9 @@ app.use(session({
 
 const pool = mysql.createPool({
     connectionLimit: 10,
-    host: '127.0.0.1',
+    host: 'localhost',
     user: 'root',
-    password: 'Mercedes1',
+    password: 'password',
     database: 'projekt2020'
 });
 

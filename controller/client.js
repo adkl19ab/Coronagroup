@@ -174,14 +174,14 @@ router.get("/users/1", function (req, resp) {
 });
 
 
-//Dette endpoint bruges til at slette
+//Dette endpoint bruges til at slette en bruger
 router.post('/delete2', (req, res) => {
     console.log('Trying to delete a user');
 
     console.log('Fornavn: ' + req.body.customer_Email);
     const Email = req.body.customer_Email;
 
-    //Vi søger efter konsulenter efter Email i vores users-table.
+    //Vi søger efter Email i vores users-table.
     const Query = "DELETE FROM users WHERE Email = ?"
 
     connection.query(Query, [Email], (err, results, fields) => {
@@ -191,6 +191,7 @@ router.post('/delete2', (req, res) => {
 
         }
         console.log('Deleted a user with id: ', results.insertId);
+        res.redirect('/admin');
         res.end();
     })
     res.end();
@@ -206,7 +207,7 @@ router.post('/auth', function (request, response) {
         connection.query('SELECT * FROM users WHERE Email = ? AND password = ?', [Email, password], function (error, results, fields) {
             if (results.length > 0) {
                 console.log('succesfully logged in');
-
+                response.redirect('/consultants');
 
                 //Vi forsøgte her at indarbejde JWT-tokens i vores system.
                 /*
@@ -276,12 +277,13 @@ router.post('/skill_create', (req, res) => {
 
     connection.query(QuerySkill, [skillName], (err, results, fields) => {
         if (err) {
-            console.log('Failed to create a new booking' + err);
+            console.log('Failed to create a new skill' + err);
             res.sendStatus(500);
 
         }
 
-        console.log('Inserted a new booking with id: ', results.insertId);
+        console.log('Inserted a new skill with id: ', results.insertId);
+        res.redirect('/userskills');
         res.end();
     })
     res.end();
@@ -291,7 +293,7 @@ router.post('/skill_create', (req, res) => {
 //Det gør vi ved at søge efter konsulentens mail, hvorefter vi kan ændre i deres skillTag.
 
 router.post('/skill_change', (req, res) => {
-    console.log('Trying to change a skill skill');
+    console.log('Trying to change a skill');
 
     console.log('name: ' + req.body.newSkill_name);
     const newSkillName = req.body.newSkill_name;
@@ -301,12 +303,13 @@ router.post('/skill_change', (req, res) => {
 
     connection.query(QueryNewSkill, [newSkillName, myEmail], (err, results, fields) => {
         if (err) {
-            console.log('Failed to create a new booking' + err);
+            console.log('Failed to change a skill' + err);
             res.sendStatus(500);
 
         }
 
-        console.log('Inserted a new booking with id: ', results.insertId);
+        console.log('Inserted a new skill with id: ', results.insertId);
+        res.redirect('/admin');
         res.end();
     })
     res.end();
@@ -334,6 +337,7 @@ connection.query(Query, [deleteBookingEmail, deleteBookingName, deleteBookingSta
 
     }
     console.log('Deleted a booking with id: ', results.insertId);
+    res.redirect('/booking');
 res.end();
 })
 res.end();
