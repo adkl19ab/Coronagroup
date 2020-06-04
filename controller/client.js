@@ -87,6 +87,9 @@ router.get('/booking', function (request, response) {
 router.get('/admin', function (req, res) {
     res.sendFile(path.resolve('View', 'delete.html'));
 });
+router.get('/userskillsoverview', function (request, response) {
+    response.sendFile(path.resolve('View', 'HTML', 'UserSkills.html'));
+});
 
 
 //Nedenstående er vores end-points og deres tilhørende syntaks.

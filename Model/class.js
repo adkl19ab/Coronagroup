@@ -27,7 +27,7 @@ class User {
                 res.sendStatus(500);
             }
             console.log('Inserted a new user with id: ', results.insertId);
-            res.redirect('/login);
+            res.redirect('/login');
         })
     }
 
